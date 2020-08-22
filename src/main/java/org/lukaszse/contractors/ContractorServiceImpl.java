@@ -1,8 +1,6 @@
-package org.lukaszse.service;
+package org.lukaszse.contractors;
 
 import lombok.extern.slf4j.Slf4j;
-import org.lukaszse.contractors.Contractor;
-import org.lukaszse.contractors.ContractorsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +12,7 @@ import java.util.List;
 public class ContractorServiceImpl implements ContractorService {
 
     // == fields ==
-    private ContractorsRepository repository;
+    private final ContractorsRepository repository;
 
     @Autowired
     public ContractorServiceImpl(ContractorsRepository repository) {
@@ -47,5 +45,9 @@ public class ContractorServiceImpl implements ContractorService {
     @Override
     public boolean isEmpty() {
         return false;
+    }
+
+    public ContractorsRepository getRepository() {
+        return repository;
     }
 }

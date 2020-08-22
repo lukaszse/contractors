@@ -1,6 +1,7 @@
 package org.lukaszse.contractors;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Data
+@EqualsAndHashCode(of = "id")
 @Entity
 @Table( name = "contractors" )
 public class Contractor {

@@ -1,0 +1,8 @@
+<thlogic>
+    <attr sel="#headId"
+          th:replace="~{fragments/head :: headFragment}"/>
+    <attr sel="#footerId"
+          th:replace="~{fragments/footer :: footerFragment}"/>
+    <attr sel="#contractorListId"
+          th:href="@{__${T(org.lukaszse.util.Mappings).CONTACTORS_LIST}__}"
+</thlogic>

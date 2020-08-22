@@ -1,4 +1,4 @@
-package org.lukaszse.service;
+package org.lukaszse.contractors;
 
 import org.lukaszse.contractors.Contractor;
 
