@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<xhtml.render.version>9.1.20</xhtml.render.version>
 	</properties>
 
 	<dependencies>
@@ -67,6 +68,12 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.xhtmlrenderer</groupId>
+			<artifactId>flying-saucer-pdf</artifactId>
+			<version>${xhtml.render.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

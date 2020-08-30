@@ -2,6 +2,7 @@ package org.lukaszse.contractors;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -14,10 +15,12 @@ public class ContractorServiceImpl implements ContractorService {
     // == fields ==
     private final ContractorsRepository repository;
 
+    // == constructors ==
     @Autowired
     public ContractorServiceImpl(ContractorsRepository repository) {
         this.repository = repository;
     }
+
 
     @PostConstruct
     public void init() {
@@ -27,27 +30,37 @@ public class ContractorServiceImpl implements ContractorService {
         System.out.println("================  this is the end  ================");
     }
 
+    // == methods ==
     @Override
     public List<Contractor> findAll() {
         return repository.findAll();
     }
 
     @Override
-    public String getContractorList() {
-        return null;
+    public Contractor getContractor(int id) {
+        return repository.getOne(id);
     }
 
     @Override
-    public boolean addContractor(Contractor contractor) {
-        return false;
+    public ContractorsRepository addContractor(Contractor contractor) {
+    repository.save(contractor);
+    return repository;
     }
 
     @Override
-    public boolean isEmpty() {
-        return false;
+    public ContractorsRepository editContractor(Contractor contractor) {    // == duplicated code - to be modified ==
+        repository.save(contractor);                                        // == duplicated code - to be modified ==
+        return repository;                                                  // == duplicated code - to be modified ==
     }
 
-    public ContractorsRepository getRepository() {
+    @Override
+    public ContractorsRepository deleteContractor(int id) {
+        repository.deleteById(id);
         return repository;
     }
+
+    //    @Override
+//    public ContractorsRepository getRepository() {
+//        return repository;
+//    }
 }

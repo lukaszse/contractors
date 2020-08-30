@@ -3,4 +3,12 @@
           th:replace="~{fragments/head :: headFragment}"/>
     <attr sel="#footerId"
           th:replace="~{fragments/footer :: footerFragment}"/>
+    <attr sel="#contractorId"
+          th:href="@{__${T(org.lukaszse.util.Mappings).VIEW_CONTRACTOR}__+'?id='+${contractor.id}}"/>
+    <attr sel="#addContractorId"
+          th:href="@{__${T(org.lukaszse.util.Mappings).ADD_CONTRACTOR}__}"/>
+    <attr sel="#deleteContractorId"
+          th:href="@{__${T(org.lukaszse.util.Mappings).DELETE_CONTRACTOR}__+'?id='+${contractor.id}}"/>
+    <attr sel="#editContractorId"
+          th:href="@{__${T(org.lukaszse.util.Mappings).EDIT_CONTRACTOR}__+'?id='+${contractor.id}}"/>
 </thlogic>

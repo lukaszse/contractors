@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head id="headId">
+    <meta charset="UTF-8">
+    <title>Contractor</title>
+</head>
+<body class="p-3 mb-2 bg-dark text-white">
+<H1 align="center">This is Contractor list from your database</H1>
+
+
+<div align="center">
+    <p>&nbsp;</p>
+
+
+    <h1>Form</h1>
+    <form th:action="@{add_contractor}" th:object="${newContractor}" method="post">
+        <p>Id:  <input type="text" size="4" th:field="*{id}" readonly="true"/></p>
+        <p>Contractor name:  <input type="text" size="30" th:field="*{name}" /></p>
+        <p>Phone number:  <input type="number" th:field="*{phone}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+
+
+<div align="center">
+    <footer id="footerId">this is a footer</footer>
+</div>
+
+</body>
+
+</html>

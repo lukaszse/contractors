@@ -18,7 +18,7 @@ public class Contractor {
     // == fields ==
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "inc")
     @GenericGenerator(name="inc", strategy = "increment")
     private Integer id;
 
@@ -29,4 +29,11 @@ public class Contractor {
     // == Hibernate (JPA) needs it
     public Contractor() {
     }
+
+    public Contractor(String name, Integer phone) {
+        this.name = name;
+        this.phone = phone;
+    }
+
+
 }

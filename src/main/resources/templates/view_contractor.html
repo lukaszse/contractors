@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head id="headId">
+    <meta charset="UTF-8">
+    <title>Contractor</title>
+</head>
+<body class="p-3 mb-2 bg-dark text-white">
+<H1 align="center">Details about contractor</H1>
+
+
+<div align="center">
+    <p>&nbsp;</p>
+    <table class="p-3 mb-2 bg-info text-white" border="2" cellpadding="10">
+            <tr>
+                <th>Id</th>
+                <th>Contractor Name</th>
+                <th>Phone number</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+        <h1>
+            <tr>
+                <td th:text="${contractor.id}" />
+                <td th:text="${contractor.name}" />
+                <td th:text="${contractor.phone}"/>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        </h1>
+    </table>
+</div>
+
+<div align="center">
+    <footer id="footerId">this is a footer</footer>
+</div>
+
+</body>
+
+</html>
