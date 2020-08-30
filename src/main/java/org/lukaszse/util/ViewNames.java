@@ -7,6 +7,7 @@ public class ViewNames {
     public static final String CONTRACTORS_LIST = "contractor_list";
     public static final String VIEW_CONTRACTOR = "view_contractor";
     public static final String ADD_CONTRACTOR = "add_contractor";
+    public static final String ORDER_LIST = "order_list";
 
     // == constructor ==
     public ViewNames() {

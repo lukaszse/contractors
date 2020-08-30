@@ -17,18 +17,19 @@ public class Order {
     @Id
     @GeneratedValue
     @GenericGenerator(name = "inc", strategy = "increment")
-    private int id;
+    @Column(name = "order_id")
+    private Integer id;
 
     @Column(name = "contractor_id")
-    private int contractorid;
+    private Integer contractorId;
 
-    private int number;
+    @Column(name = "contractor_name")
+    private String contractorName;
 
+    @Column(name = "order_number")
+    private Integer number;
+
+    @Column(name = "order_name")
     private String name;
-
-/*    private String description;
-
-    @Column(name = "order_date")
-    private LocalDate orderDate;*/
 
 }
