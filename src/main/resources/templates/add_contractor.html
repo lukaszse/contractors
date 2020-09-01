@@ -5,7 +5,7 @@
     <title>Contractor</title>
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
-<H1 align="center">This is Contractor list from your database</H1>
+<H1 align="center">Add new contractor</H1>
 
 
 <div align="center">
@@ -13,7 +13,7 @@
 
 
     <h1>Form</h1>
-    <form th:action="@{add_contractor}" th:object="${newContractor}" method="post">
+    <form th:action="@{add_contractor}" th:object="${new_contractor}" method="post">
         <p>Id:  <input type="text" size="4" th:field="*{id}" readonly="true"/></p>
         <p>Contractor name:  <input type="text" size="30" th:field="*{name}" /></p>
         <p>Phone number:  <input type="number" th:field="*{phone}" /></p>

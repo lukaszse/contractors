@@ -9,6 +9,7 @@ public class Mappings {
     public static final String DELETE_CONTRACTOR = "delete_contractor";
     public static final String EDIT_CONTRACTOR = "edit_contractor";
     public static final String ORDER_LIST = "order_list";
+    public static final String ADD_ORDER = "add_order";
 
 
 
