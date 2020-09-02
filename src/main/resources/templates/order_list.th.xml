@@ -5,4 +5,10 @@
           th:replace="~{fragments/footer :: footerFragment}"/>
     <attr sel="#addNewOrder"
           th:href="@{__${T(org.lukaszse.util.Mappings).ADD_ORDER}__}"/>
+    <attr sel="#deleteOrder"
+          th:href="@{__${T(org.lukaszse.util.Mappings).DELETE_ORDER}__+'?id='+${order.id}}"/>
+    <attr sel="#editOrder"
+          th:href="@{__${T(org.lukaszse.util.Mappings).EDIT_ORDER}__+'?id='+${order.id}}"/>
+    <attr sel="#home"
+          th:href="@{__${T(org.lukaszse.util.Mappings).HOME}__}"/>
 </thlogic>

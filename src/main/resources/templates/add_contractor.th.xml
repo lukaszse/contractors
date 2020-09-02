@@ -3,4 +3,6 @@
           th:replace="~{fragments/head :: headFragment}"/>
     <attr sel="#footerId"
           th:replace="~{fragments/footer :: footerFragment}"/>
+    <attr sel="#home"
+          th:href="@{__${T(org.lukaszse.util.Mappings).HOME}__}"/>
 </thlogic>

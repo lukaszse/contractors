@@ -10,6 +10,9 @@ public class Mappings {
     public static final String EDIT_CONTRACTOR = "edit_contractor";
     public static final String ORDER_LIST = "order_list";
     public static final String ADD_ORDER = "add_order";
+    public static final String DELETE_ORDER = "delete_order";
+    public static final String EDIT_ORDER = "edit_order";
+    public static final String HOME = "home";
 
 
 

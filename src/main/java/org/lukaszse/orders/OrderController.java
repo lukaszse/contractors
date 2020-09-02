@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.Column;
 import java.util.List;
@@ -42,8 +43,16 @@ public class OrderController {
 
     @GetMapping(Mappings.ADD_ORDER)
     public String addOrder(Model model) {
-        OrderDTO orderDTO = new OrderDTO(2,2555, "montaż");
-        model.addAttribute(AttributeNames.ORDER_DTO, orderDTO);
+        Order order = new Order(null,null, "");
+        model.addAttribute(AttributeNames.ORDER, order);
+        model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
+        return ViewNames.ADD_ORDER;
+    }
+
+    @GetMapping(Mappings.EDIT_ORDER)
+    public String editOrder(@RequestParam Integer id, Model model) {
+        Order order = ordersService.getOrder(id);
+        model.addAttribute(AttributeNames.ORDER, order);
         model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
         return ViewNames.ADD_ORDER;
     }
@@ -52,6 +61,12 @@ public class OrderController {
     public String processAddOrder(@ModelAttribute(AttributeNames.ORDER_DTO) OrderDTO orderDTO) {
         Order order = new Order(orderDTO.getContractorId(), orderDTO.getOrderNumber(), orderDTO.getOrderName());
         ordersService.addOrder(order);
+        return "redirect:/" + Mappings.ORDER_LIST;
+    }
+
+    @GetMapping(Mappings.DELETE_ORDER)
+    public String deleteOrder(@RequestParam Integer id) {
+        ordersService.deleteOrder(id);
         return "redirect:/" + Mappings.ORDER_LIST;
     }
 }

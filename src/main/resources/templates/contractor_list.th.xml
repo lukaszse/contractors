@@ -11,4 +11,6 @@
           th:href="@{__${T(org.lukaszse.util.Mappings).DELETE_CONTRACTOR}__+'?id='+${contractor.id}}"/>
     <attr sel="#editContractorId"
           th:href="@{__${T(org.lukaszse.util.Mappings).EDIT_CONTRACTOR}__+'?id='+${contractor.id}}"/>
+    <attr sel="#home"
+          th:href="@{__${T(org.lukaszse.util.Mappings).HOME}__}"/>
 </thlogic>

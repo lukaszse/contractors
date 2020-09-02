@@ -11,14 +11,23 @@
 <div align="center">
     <p>&nbsp;</p>
 
+    <table>
+    <form th:action="@{add_contractor}" th:object="${contractor}" method="post">
+        <tr>
+            <td>Id:   </td><td><input type="text" size="4" th:field="*{id}" readonly="true"/></td>
+        </tr>
 
-    <h1>Form</h1>
-    <form th:action="@{add_contractor}" th:object="${new_contractor}" method="post">
-        <p>Id:  <input type="text" size="4" th:field="*{id}" readonly="true"/></p>
-        <p>Contractor name:  <input type="text" size="30" th:field="*{name}" /></p>
-        <p>Phone number:  <input type="number" th:field="*{phone}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        <tr>
+            <td>Contractor name: </td><td><input type="text" size="30" th:field="*{name}" /></td>
+        </tr>
 
+        <tr>
+            <td>Phone number:  </td><td><input type="number" th:field="*{phone}" /></td>
+        </tr>
+        <tr>
+            <td></td><td><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></td>
+        </tr>
+    </table>
 
 <div align="center">
     <footer id="footerId">this is a footer</footer>
