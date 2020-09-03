@@ -13,6 +13,7 @@ public class Mappings {
     public static final String DELETE_ORDER = "delete_order";
     public static final String EDIT_ORDER = "edit_order";
     public static final String HOME = "home";
+    public static final String VIEW_ORDER = "view_order";
 
 
 

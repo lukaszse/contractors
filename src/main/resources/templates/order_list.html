@@ -21,6 +21,7 @@
             <th scope="col">Order Name</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
 
     <h1 th:each="order : ${order_list_view}">
@@ -30,6 +31,7 @@
             <td th:text="${order.contractorName}"/>
             <td th:text="${order.number}"/>
             <td th:text="${order.name}"/>
+            <td><a id="viewOrder">View Order</a></td>
             <td><a id="deleteOrder">Delete</a></td>
             <td><a id="editOrder">Edit</a></td>
         </tr>

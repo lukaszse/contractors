@@ -74,6 +74,7 @@
 			<version>${xhtml.render.version}</version>
 		</dependency>
 
+
 	</dependencies>
 
 	<build>

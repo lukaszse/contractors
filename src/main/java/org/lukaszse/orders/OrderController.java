@@ -58,8 +58,8 @@ public class OrderController {
     }
 
     @PostMapping(Mappings.ADD_ORDER)
-    public String processAddOrder(@ModelAttribute(AttributeNames.ORDER_DTO) OrderDTO orderDTO) {
-        Order order = new Order(orderDTO.getContractorId(), orderDTO.getOrderNumber(), orderDTO.getOrderName());
+    public String processAddOrder(@ModelAttribute(AttributeNames.ORDER) Order submitedOrder) {
+        Order order = submitedOrder;
         ordersService.addOrder(order);
         return "redirect:/" + Mappings.ORDER_LIST;
     }

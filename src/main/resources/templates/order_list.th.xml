@@ -11,4 +11,6 @@
           th:href="@{__${T(org.lukaszse.util.Mappings).EDIT_ORDER}__+'?id='+${order.id}}"/>
     <attr sel="#home"
           th:href="@{__${T(org.lukaszse.util.Mappings).HOME}__}"/>
+    <attr sel="#viewOrder"
+          th:href="@{__${T(org.lukaszse.util.Mappings).VIEW_ORDER}__+'?id='+${order.id}}"/>
 </thlogic>

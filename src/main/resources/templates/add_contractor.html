@@ -7,10 +7,12 @@
 <body class="p-3 mb-2 bg-dark text-white">
 <H1 align="center">Add new contractor</H1>
 
-
 <div align="center">
     <p>&nbsp;</p>
-
+    <h3>
+        <a id="contractorListId">Back to contractor list</a>
+    </h3>
+    <p>&nbsp;</p>
     <table>
     <form th:action="@{add_contractor}" th:object="${contractor}" method="post">
         <tr>

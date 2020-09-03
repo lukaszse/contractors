@@ -5,4 +5,6 @@
           th:replace="~{fragments/footer :: footerFragment}"/>
     <attr sel="#home"
           th:href="@{__${T(org.lukaszse.util.Mappings).HOME}__}"/>
+    <attr sel="#contractorListId"
+          th:href="@{__${T(org.lukaszse.util.Mappings).CONTACTORS_LIST}__}"/>
 </thlogic>

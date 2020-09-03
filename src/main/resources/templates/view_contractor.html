@@ -3,6 +3,20 @@
 <head id="headId">
     <meta charset="UTF-8">
     <title>Contractor</title>
+    <script type="text/javascript" th:src="@{/js/lib/jspdf.min.inc.js}"></script>
+    <script type="text/javascript">
+
+        function genPDF() {
+
+            var doc = new jsPDF();
+
+            doc.text(20,20,'text message');
+            doc.addPage();
+            doc.text(20,20,'test page 2');
+            doc.save('test.pdf');
+        }
+    </script>
+
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
 <H1 align="center">Details about contractor</H1>
@@ -17,6 +31,7 @@
                 <th>Phone number</th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
 
         <h1>
@@ -26,6 +41,7 @@
                 <td th:text="${contractor.phone}"/>
                 <td><a id="editContractorId">Edit</a></td>
                 <td><a id="deleteContractorId">Delete</a></td>
+                <td><a href="javascript:genPDF()">Downoad PDF</a></td>
             </tr>
         </h1>
     </table>
