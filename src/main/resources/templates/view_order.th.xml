@@ -1,0 +1,12 @@
+<thlogic>
+    <attr sel="#headId"
+          th:replace="~{fragments/head :: headFragment}"/>
+    <attr sel="#footerId"
+          th:replace="~{fragments/footer :: footerFragment}"/>
+    <attr sel="#deleteOrderId"
+          th:href="@{__${T(org.lukaszse.util.Mappings).DELETE_ORDER}__+'?id='+${order.id}}"/>
+    <attr sel="#editOrderId"
+          th:href="@{__${T(org.lukaszse.util.Mappings).EDIT_ORDER}__+'?id='+${order.id}}"/>
+    <attr sel="#orderListId"
+          th:href="@{__${T(org.lukaszse.util.Mappings).ORDER_LIST}__}"/>
+</thlogic>
