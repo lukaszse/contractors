@@ -5,20 +5,31 @@
     <title>Contractor</title>
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
-<H1 align="center">This is Contractor list from your database</H1>
-
+<H1 align="center">Add new contractor</H1>
 
 <div align="center">
     <p>&nbsp;</p>
+    <h3>
+        <a id="contractorListId">Back to contractor list</a>
+    </h3>
+    <p>&nbsp;</p>
+    <table>
+    <form th:action="@{add_contractor}" th:object="${contractor}" method="post">
+        <tr>
+            <td>Id:   </td><td><input type="text" size="4" th:field="*{id}" readonly="true"/></td>
+        </tr>
 
+        <tr>
+            <td>Contractor name: </td><td><input type="text" size="30" th:field="*{name}" /></td>
+        </tr>
 
-    <h1>Form</h1>
-    <form th:action="@{add_contractor}" th:object="${newContractor}" method="post">
-        <p>Id:  <input type="text" size="4" th:field="*{id}" readonly="true"/></p>
-        <p>Contractor name:  <input type="text" size="30" th:field="*{name}" /></p>
-        <p>Phone number:  <input type="number" th:field="*{phone}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-
+        <tr>
+            <td>Phone number:  </td><td><input type="number" th:field="*{phone}" /></td>
+        </tr>
+        <tr>
+            <td></td><td><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></td>
+        </tr>
+    </table>
 
 <div align="center">
     <footer id="footerId">this is a footer</footer>

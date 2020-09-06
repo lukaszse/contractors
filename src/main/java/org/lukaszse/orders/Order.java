@@ -2,11 +2,9 @@ package org.lukaszse.orders;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Data
 @EqualsAndHashCode(of = "id")
@@ -14,21 +12,28 @@ import java.time.LocalDate;
 @Table(name = "orders")
 public class Order {
 
+    // == fields ==
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "inc")
     @GenericGenerator(name = "inc", strategy = "increment")
-    private int id;
+    private Integer id;
 
     @Column(name = "contractor_id")
-    private int contractorid;
+    private Integer contractorId;
 
-    private int number;
+    private Integer number;
 
     private String name;
 
-/*    private String description;
 
-    @Column(name = "order_date")
-    private LocalDate orderDate;*/
+    // == constructors ==
 
+    public Order(){
+    }
+
+    public Order(Integer contractorId, Integer number, String name) {
+        this.contractorId = contractorId;
+        this.number = number;
+        this.name = name;
+    }
 }

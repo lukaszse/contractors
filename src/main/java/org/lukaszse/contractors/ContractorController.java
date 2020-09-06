@@ -53,7 +53,7 @@ public class ContractorController {
     public String addContractor(Model model) {
         Contractor newContractor = new Contractor("", 1000);
         log.info("ID FROM GETGMAPPING ADD METHOD = {}", newContractor.getId());
-        model.addAttribute(AttributeNames.NEW_CONTRACTOR, newContractor);
+        model.addAttribute(AttributeNames.CONTRACTOR, newContractor);
         return ViewNames.ADD_CONTRACTOR;
     }
 
@@ -62,12 +62,12 @@ public class ContractorController {
         Contractor contractor = contractorService.getContractor(id);
         log.info("ID FROM GETGMAPPING EDIT METHOD = {}", contractor.getId());
         log.info("CONTRACTOR NAME = {}", contractor.getName());
-        model.addAttribute(AttributeNames.NEW_CONTRACTOR, contractor);
+        model.addAttribute(AttributeNames.CONTRACTOR, contractor);
         return ViewNames.ADD_CONTRACTOR;
     }
 
     @PostMapping(Mappings.ADD_CONTRACTOR)
-    public String processAddContractor(@ModelAttribute(AttributeNames.CONTRACTOR) Contractor contractor) {
+    public String processAddOrEditContractor(@ModelAttribute(AttributeNames.CONTRACTOR) Contractor contractor) {
 
 
         if(contractor.getId() == null) {
