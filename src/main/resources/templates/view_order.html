@@ -14,10 +14,12 @@
     <script type="text/javascript">
         function genPDF() {
             var doc = new jsPDF();
-            var order = document.querySelector('#order');
-            doc.fromHTML(order, 15,15)
+            var principal = document.querySelector('#principal');
+            var contractor = document.querySelector('#contractor');
+            doc.fromHTML(principal, 15,15)
+            doc.fromHTML(contractor, 110,70)
             doc.autoTable({
-                startY: 100,
+                startY: 130,
                 html: '#table' })
             doc.save('Test.pdf');
         }
@@ -32,28 +34,37 @@
     <h3>
         <a id="orderListId">Back to order list</a>
     </h3>
-    <div id="order" align="left">
-        <p>Zleceniodawca:</p>
-        <h3 th:text="${T(org.lukaszse.util.CompanyData).COMPANY_NAME}">FIRMA PRZYKLADOWA S.A.</h3>
-        <p>ul. Kolorowa 25
-            <br />43-723 Miasto
-            <br />Kraj
-        </p>
-        <h4 th:text="'Zlecenie nr: '+${order.id}"></h4>
+    <div id="principal" align="left">
+        <p>Principal:</p>
+        <h3 th:utext="${T(org.lukaszse.util.CompanyData).COMPANY_NAME}">FIRMA PRZYKLADOWA S.A.</h3>
+        <p th:utext="${T(org.lukaszse.util.CompanyData).COMPANY_STREET}
+                +' '+${T(org.lukaszse.util.CompanyData).COMPANY_PROPERTY_NO}
+                +'<br \>'+${T(org.lukaszse.util.CompanyData).COMPANY_POST}
+                +' '+${T(org.lukaszse.util.CompanyData).COMPANY_CITY}
+                +'<br \>'+${T(org.lukaszse.util.CompanyData).COMPANY_COUNTRY}">ulica<br \>Miasto<br \>Kraj</p>
+
+        <h4 th:text="'Order no: '+${order.id}">Order number</h4>
     </div>
+
+    <div id="contractor" align="center">
+        <p>Contractor:</p>
+        <h3 th:text="${contractor.name}">Contractor Name</h3>
+
+        <p th:utext="${contractor.street}+' '+${contractor.property}
+                +'<br \>'+${contractor.post}+' '+${contractor.city}
+                +'<br \>'+${contractor.country}">ulica<br \>Miasto<br \>Kraj</p>
+    </div>
+
 
     <table id="table" class="table table-striped table-dark" border="2" cellpadding="10">
             <tr>
-                <th>Order Id</th>
-                <th>Contractor Id</th>
                 <th>Order Name</th>
+                <th>Contractor Description</th>
             </tr>
-
         <h1>
             <tr>
-                <td th:text="${order.id}" />
-                <td th:text="${contractor.name}" />
-                <td th:text="${order.name}"/>
+                <td th:text="${order.orderName}" />
+                <td th:text="${order.orderDescription}"/>
             </tr>
         </h1>
     </table>

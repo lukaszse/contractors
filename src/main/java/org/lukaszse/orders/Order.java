@@ -21,19 +21,20 @@ public class Order {
     @Column(name = "contractor_id")
     private Integer contractorId;
 
-    private Integer number;
+    @Column(name = "order_name")
+    private String orderName;
 
-    private String name;
-
+    @Column(name = "order_description")
+    private String orderDescription;
 
     // == constructors ==
 
     public Order(){
     }
 
-    public Order(Integer contractorId, Integer number, String name) {
+    public Order(Integer contractorId, String orderName, String orderDescription) {
         this.contractorId = contractorId;
-        this.number = number;
-        this.name = name;
+        this.orderName = orderName;
+        this.orderDescription = orderDescription;
     }
 }

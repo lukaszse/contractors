@@ -15,9 +15,7 @@
 
         <tr>
             <th scope="col">Order Id</th>
-            <th scope="col">Contractor Id</th>
             <th scope="col">Contractor Name</th>
-            <th scope="col">Order Number</th>
             <th scope="col">Order Name</th>
             <th></th>
             <th></th>
@@ -27,10 +25,8 @@
     <h1 th:each="order : ${order_list_view}">
         <tr>
             <td th:text="${order.id}"/>
-            <td th:text="${order.contractorId}"/>
             <td th:text="${order.contractorName}"/>
-            <td th:text="${order.number}"/>
-            <td th:text="${order.name}"/>
+            <td th:text="${order.orderName}"/>
             <td><a id="viewOrder">View Order</a></td>
             <td><a id="deleteOrder">Delete</a></td>
             <td><a id="editOrder">Edit</a></td>
