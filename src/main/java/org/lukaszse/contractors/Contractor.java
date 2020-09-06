@@ -24,6 +24,16 @@ public class Contractor {
 
     private String name;
 
+    private String street;
+
+    private Integer property;
+
+    private String post;
+
+    private String city;
+
+    private String country;
+
     private Integer phone;
 
     // == Hibernate (JPA) needs it
