@@ -43,7 +43,7 @@ public class OrderController {
 
     @GetMapping(Mappings.ADD_ORDER)
     public String addOrder(Model model) {
-        Order order = new Order(null,null, "");
+        Order order = new Order(0, "", "");
         model.addAttribute(AttributeNames.ORDER, order);
         model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
         return ViewNames.ADD_ORDER;

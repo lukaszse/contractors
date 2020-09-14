@@ -1,6 +1,6 @@
 create table contractors (
                 id int unsigned primary key auto_increment,
-                name varchar(100) not null,
+                name varchar(100),
                 street varchar(50),
                 property int,
                 post varchar(6),

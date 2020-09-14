@@ -21,9 +21,10 @@ public class OrderView {
     @Column(name = "contractor_name")
     private String contractorName;
 
-    @Column(name = "order_number")
-    private Integer number;
 
     @Column(name = "order_name")
-    private String name;
+    private String orderName;
+
+    @Column(name = "order_description")
+    private String orderDescription;
 }

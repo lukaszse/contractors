@@ -1,12 +1,10 @@
 package org.lukaszse.contractors;
 
 import lombok.extern.slf4j.Slf4j;
-import org.bouncycastle.math.raw.Mod;
 import org.lukaszse.util.AttributeNames;
 import org.lukaszse.util.Mappings;
 import org.lukaszse.util.ViewNames;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,7 +49,7 @@ public class ContractorController {
 
     @GetMapping(Mappings.ADD_CONTRACTOR)
     public String addContractor(Model model) {
-        Contractor newContractor = new Contractor("", 1000);
+        Contractor newContractor = new Contractor("", "", 0, "", "", "", 0);
         log.info("ID FROM GETGMAPPING ADD METHOD = {}", newContractor.getId());
         model.addAttribute(AttributeNames.CONTRACTOR, newContractor);
         return ViewNames.ADD_CONTRACTOR;

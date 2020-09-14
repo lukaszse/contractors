@@ -1,5 +1,3 @@
-insert into contractors (name, phone) values ('Firma Krzak', 997);
-
-insert into orders (contractor_id, number, name) values (2, 1000, 'montaż regałów');
-insert into orders (contractor_id, number, name) values (2, 1001, 'instalcja przenośników');
-insert into orders (contractor_id, number, name) values (1, 1000, 'demontaż regałów');
+insert into orders (contractor_id, order_name, order_description) values (2, 'montaz', 'montaz instalacji regalowej wysokiego skladowania');
+insert into orders (contractor_id, order_name, order_description) values (2, 'instalcja', 'instalacjaa przenosnikow na poziomie zero');
+insert into orders (contractor_id, order_name, order_description) values (1, 'demontaz', 'demontaz regalow paletowych + sprzet');
