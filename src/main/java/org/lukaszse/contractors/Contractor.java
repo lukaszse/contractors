@@ -40,8 +40,20 @@ public class Contractor {
     public Contractor() {
     }
 
-    public Contractor(String name, Integer phone) {
+    public Contractor(String name,
+                      String street,
+                      Integer property,
+                      String post,
+                      String city,
+                      String country,
+                      Integer phone) {
+
         this.name = name;
+        this.street = street;
+        this.property = property;
+        this.post = post;
+        this.city = city;
+        this.country = country;
         this.phone = phone;
     }
 

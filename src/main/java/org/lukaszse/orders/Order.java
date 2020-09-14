@@ -27,8 +27,8 @@ public class Order {
     @Column(name = "order_description")
     private String orderDescription;
 
-    // == constructors ==
 
+    // == constructors ==
     public Order(){
     }
 
