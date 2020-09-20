@@ -72,7 +72,7 @@ public class OrderController {
 
     @GetMapping(Mappings.VIEW_ORDER)
     public String orderView(@RequestParam Integer id, Model model) {
-        model.addAttribute(ordersService.getOrder(id));
+        model.addAttribute(ordersService.getOrder(id));         // TODO: add relations, optimise code
         model.addAttribute(contractorService.getContractor(
                 ordersService.getOrder(id).getContractorId()));
         return ViewNames.VIEW_ORDER;

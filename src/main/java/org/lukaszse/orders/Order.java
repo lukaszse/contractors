@@ -27,6 +27,8 @@ public class Order {
     @Column(name = "order_description")
     private String orderDescription;
 
+    // TODO: Add relation ManyToOne, between orders and contractors
+
 
     // == constructors ==
     public Order(){

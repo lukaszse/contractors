@@ -36,6 +36,8 @@ public class Contractor {
 
     private Integer phone;
 
+    // TODO: Add relation OneToMany, between contractor and orders
+
     // == Hibernate (JPA) needs it
     public Contractor() {
     }

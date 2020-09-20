@@ -22,6 +22,7 @@ public class ContractorServiceImpl implements ContractorService {
     }
 
 
+
     @PostConstruct
     public void init() {
         System.out.println("===================================================");
