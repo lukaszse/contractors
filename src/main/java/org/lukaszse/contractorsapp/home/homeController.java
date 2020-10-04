@@ -1,9 +1,8 @@
-package org.lukaszse.home;
+package org.lukaszse.contractorsapp.home;
 
-import org.lukaszse.util.Mappings;
-import org.lukaszse.util.ViewNames;
+import org.lukaszse.contractorsapp.util.Mappings;
+import org.lukaszse.contractorsapp.util.ViewNames;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller

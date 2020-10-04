@@ -1,12 +1,10 @@
-package org.lukaszse.orders;
+package org.lukaszse.contractorsapp.orders;
 
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.weaver.ast.Or;
-import org.lukaszse.contractors.Contractor;
-import org.lukaszse.contractors.ContractorService;
-import org.lukaszse.util.AttributeNames;
-import org.lukaszse.util.Mappings;
-import org.lukaszse.util.ViewNames;
+import org.lukaszse.contractorsapp.contractors.ContractorService;
+import org.lukaszse.contractorsapp.util.AttributeNames;
+import org.lukaszse.contractorsapp.util.Mappings;
+import org.lukaszse.contractorsapp.util.ViewNames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.persistence.Column;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Controller

@@ -1,4 +1,4 @@
-package org.lukaszse.selectionCards;
+package org.lukaszse.contractorsapp.selectionCards;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -1,4 +1,4 @@
-package org.lukaszse.orders;
+package org.lukaszse.contractorsapp.orders;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

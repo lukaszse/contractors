@@ -1,4 +1,4 @@
-package org.lukaszse.contractors;
+package org.lukaszse.contractorsapp.contractors;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

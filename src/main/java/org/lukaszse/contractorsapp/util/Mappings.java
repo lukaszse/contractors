@@ -1,9 +1,9 @@
-package org.lukaszse.util;
+package org.lukaszse.contractorsapp.util;
 
 public class Mappings {
 
     // == final fields ==
-    public static final String CONTACTORS_LIST = "list";
+    public static final String CONTRACTORS_LIST = "contractor_list";
     public static final String VIEW_CONTRACTOR = "view_contractor";
     public static final String ADD_CONTRACTOR = "add_contractor";
     public static final String DELETE_CONTRACTOR = "delete_contractor";

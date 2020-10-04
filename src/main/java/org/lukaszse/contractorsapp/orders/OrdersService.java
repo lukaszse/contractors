@@ -1,8 +1,4 @@
-package org.lukaszse.orders;
-
-import org.aspectj.weaver.ast.Or;
-import org.lukaszse.contractors.Contractor;
-import org.lukaszse.contractors.ContractorsRepository;
+package org.lukaszse.contractorsapp.orders;
 
 import java.util.List;
 

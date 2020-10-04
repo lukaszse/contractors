@@ -1,4 +1,4 @@
-package org.lukaszse.util.thymeleaf;
+package org.lukaszse.contractorsapp.util.thymeleaf;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
