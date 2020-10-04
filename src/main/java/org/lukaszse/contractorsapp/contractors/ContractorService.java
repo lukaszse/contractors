@@ -1,7 +1,4 @@
-package org.lukaszse.contractors;
-
-import org.lukaszse.contractors.Contractor;
-import org.springframework.http.ResponseEntity;
+package org.lukaszse.contractorsapp.contractors;
 
 import java.util.List;
 

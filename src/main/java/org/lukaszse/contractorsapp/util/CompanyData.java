@@ -1,4 +1,4 @@
-package org.lukaszse.util;
+package org.lukaszse.contractorsapp.util;
 
 public class CompanyData {
     public static final String COMPANY_NAME = "EXAMPLE COMPANY INC.";

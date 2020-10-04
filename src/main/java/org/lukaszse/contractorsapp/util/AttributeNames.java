@@ -1,4 +1,4 @@
-package org.lukaszse.util;
+package org.lukaszse.contractorsapp.util;
 
 public class AttributeNames {
 

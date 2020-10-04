@@ -4,9 +4,9 @@
     <attr sel="#footerId"
           th:replace="~{fragments/footer :: footerFragment}"/>
     <attr sel="#deleteOrderId"
-          th:href="@{__${T(org.lukaszse.util.Mappings).DELETE_ORDER}__+'?id='+${order.id}}"/>
+          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).DELETE_ORDER}__+'?id='+${order.id}}"/>
     <attr sel="#editOrderId"
-          th:href="@{__${T(org.lukaszse.util.Mappings).EDIT_ORDER}__+'?id='+${order.id}}"/>
+          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).EDIT_ORDER}__+'?id='+${order.id}}"/>
     <attr sel="#orderListId"
-          th:href="@{__${T(org.lukaszse.util.Mappings).ORDER_LIST}__}"/>
+          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).ORDER_LIST}__}"/>
 </thlogic>

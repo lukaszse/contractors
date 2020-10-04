@@ -1,6 +1,6 @@
-package org.lukaszse.config;
+package org.lukaszse.contractorsapp.config;
 
-import org.lukaszse.util.ViewNames;
+import org.lukaszse.contractorsapp.util.ViewNames;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

@@ -1,4 +1,4 @@
-package org.lukaszse.orders;
+package org.lukaszse.contractorsapp.orders;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,6 +26,8 @@ public class Order {
 
     @Column(name = "order_description")
     private String orderDescription;
+
+    // TODO: Add relation ManyToOne, between orders and contractors
 
 
     // == constructors ==

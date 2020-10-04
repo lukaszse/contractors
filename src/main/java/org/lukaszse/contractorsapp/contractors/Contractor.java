@@ -1,4 +1,4 @@
-package org.lukaszse.contractors;
+package org.lukaszse.contractorsapp.contractors;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -35,6 +35,8 @@ public class Contractor {
     private String country;
 
     private Integer phone;
+
+    // TODO: Add relation OneToMany, between contractor and orders
 
     // == Hibernate (JPA) needs it
     public Contractor() {

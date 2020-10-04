@@ -1,9 +1,9 @@
-package org.lukaszse.contractors;
+package org.lukaszse.contractorsapp.contractors;
 
 import lombok.extern.slf4j.Slf4j;
-import org.lukaszse.util.AttributeNames;
-import org.lukaszse.util.Mappings;
-import org.lukaszse.util.ViewNames;
+import org.lukaszse.contractorsapp.util.AttributeNames;
+import org.lukaszse.contractorsapp.util.Mappings;
+import org.lukaszse.contractorsapp.util.ViewNames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 @Slf4j
 @Controller
@@ -34,7 +32,7 @@ public class ContractorController {
 
 
     // == methods ==
-    @GetMapping(Mappings.CONTACTORS_LIST)
+    @GetMapping(Mappings.CONTRACTORS_LIST)
     public String contractorListView(Model model) {
         model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
         return ViewNames.CONTRACTORS_LIST;
@@ -81,12 +79,12 @@ public class ContractorController {
             contractorService.editContractor(contractor);
         }
 
-        return "redirect:/" + Mappings.CONTACTORS_LIST;
+        return "redirect:/" + Mappings.CONTRACTORS_LIST;
     }
 
     @GetMapping(Mappings.DELETE_CONTRACTOR)
     public String deleteContractor(@RequestParam int id) {
         contractorService.deleteContractor(id);
-        return "redirect:/" + Mappings.CONTACTORS_LIST;
+        return "redirect:/" + Mappings.CONTRACTORS_LIST;
     }
 }
