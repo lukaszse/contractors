@@ -37,7 +37,7 @@ public class OrderController {
 
     @GetMapping(Mappings.ADD_ORDER)
     public String addOrder(Model model) {
-        Order order = new Order(0, "", "");
+        Order order = new Order("", "");
         model.addAttribute(AttributeNames.ORDER, order);
         model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
         return ViewNames.ADD_ORDER;
@@ -66,9 +66,8 @@ public class OrderController {
 
     @GetMapping(Mappings.VIEW_ORDER)
     public String orderView(@RequestParam Integer id, Model model) {
-        model.addAttribute(ordersService.getOrder(id));         // TODO: add relations, optimise code
-        model.addAttribute(contractorService.getContractor(
-                ordersService.getOrder(id).getContractorId()));
+        model.addAttribute(ordersService.getOrder(id));
+        model.addAttribute(ordersService.getOrder(id).getContractor());  // TODO: MantToOne relation used, but is to be improved in view
         return ViewNames.VIEW_ORDER;
     }
 }

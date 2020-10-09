@@ -9,6 +9,8 @@ spring:
 
 keycloak:
   auth-server-url: 'http://192.168.55.210:8180/auth/'
-  realm: 'ContractorsApp'
-  resource: 'contractors-spring-client'
+  realm: 'ConstructorAppLocal'
+  resource: 'contractors-spring-client-local'
   public-client: true
+  ssl-required: "none"
+  confidential-port: 0
