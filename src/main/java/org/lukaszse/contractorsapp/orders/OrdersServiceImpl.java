@@ -13,27 +13,22 @@ public class OrdersServiceImpl implements OrdersService{
 
     // == fields ==
     private OrdersRepository repository;
-    private OrderViewRepository viewRepository;
 
     // == constructors ==
     @Autowired
-    public OrdersServiceImpl(OrdersRepository repository, OrderViewRepository viewRepository) {
+    public OrdersServiceImpl(OrdersRepository repository) {
         this.repository = repository;
-        this.viewRepository = viewRepository;
     }
 
-    @PostConstruct
+/*    @PostConstruct
     public void init() {
         System.out.println("===================================================");
         System.out.println("=========  this is your database print  ===========");
         System.out.println(findAll().toString());
         System.out.println("================  this is the end  ================");
         System.out.println("\n\n");
-        System.out.println("===================================================");
-        System.out.println("=========  this is your database print  ===========");
-        System.out.println(findAllView().toString());
-        System.out.println("================  this is the end  ================");
-    }
+
+    }*/
 
     // == methods ==
     @Override
@@ -42,9 +37,9 @@ public class OrdersServiceImpl implements OrdersService{
     }
 
     @Override
-    public OrdersRepository addOrder(Order order) {     // == duplicated code - to be modified ==
-        repository.save(order);                         // == duplicated code - to be modified ==
-        return repository;                              // == duplicated code - to be modified ==
+    public OrdersRepository addOrder(Order order) {     // TODO == duplicated code - to be modified ==
+        repository.save(order);                         // TODO == duplicated code - to be modified ==
+        return repository;                              // TODO == duplicated code - to be modified ==
     }
 
     @Override
@@ -64,8 +59,4 @@ public class OrdersServiceImpl implements OrdersService{
         return repository.findAll();
     }
 
-    @Override
-    public List<OrderView> findAllView() {
-        return viewRepository.findAll();
-    }
 }

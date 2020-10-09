@@ -21,14 +21,13 @@ public class ContractorServiceImpl implements ContractorService {
     }
 
 
-
-    @PostConstruct
+/*    @PostConstruct
     public void init() {
         System.out.println("===================================================");
         System.out.println("=========  this is your database print  ===========");
         System.out.println(findAll().toString());
         System.out.println("================  this is the end  ================");
-    }
+    }*/
 
     // == methods ==
     @Override

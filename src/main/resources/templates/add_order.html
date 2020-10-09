@@ -20,9 +20,9 @@
                 <td>
 
                     <select th:field="*{contractorId}">
-                        <option th:each="contractor : ${contractor_list}"
-                                th:value="${contractor.id}"
-                                th:text="${contractor.getName()}">Wireframe
+                        <option th:each="contractorFromList : ${contractor_list}"
+                                th:value="${contractorFromList.getId()}"
+                                th:text="${contractorFromList.getName()}">Wireframe
                         </option>
 
                 </td>

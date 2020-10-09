@@ -36,23 +36,23 @@
     </h3>
     <div id="principal" align="left">
         <p>Principal:</p>
-        <h3 th:utext="${T(org.lukaszse.util.CompanyData).COMPANY_NAME}">FIRMA PRZYKLADOWA S.A.</h3>
-        <p th:utext="${T(org.lukaszse.util.CompanyData).COMPANY_STREET}
-                +' '+${T(org.lukaszse.util.CompanyData).COMPANY_PROPERTY_NO}
-                +'<br \>'+${T(org.lukaszse.util.CompanyData).COMPANY_POST}
-                +' '+${T(org.lukaszse.util.CompanyData).COMPANY_CITY}
-                +'<br \>'+${T(org.lukaszse.util.CompanyData).COMPANY_COUNTRY}">ulica<br \>Miasto<br \>Kraj</p>
+        <h3 th:utext="${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_NAME}">FIRMA PRZYKLADOWA S.A.</h3>
+        <p th:utext="${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_STREET}
+                +' '+${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_PROPERTY_NO}
+                +'<br \>'+${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_POST}
+                +' '+${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_CITY}
+                +'<br \>'+${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_COUNTRY}">ulica<br \>Miasto<br \>Kraj</p>
 
         <h4 th:text="'Order no: '+${order.id}">Order number</h4>
     </div>
 
     <div id="contractor" align="center">
         <p>Contractor:</p>
-        <h3 th:text="${contractor.name}">Contractor Name</h3>
+        <h3 th:text="${order.contractor.name}">Contractor Name</h3>
 
-        <p th:utext="${contractor.street}+' '+${contractor.property}
-                +'<br \>'+${contractor.post}+' '+${contractor.city}
-                +'<br \>'+${contractor.country}">ulica<br \>Miasto<br \>Kraj</p>
+        <p th:utext="${order.contractor.name}+' '+${order.contractor.property}
+                +'<br \>'+${order.contractor.post}+' '+${order.contractor.city}
+                +'<br \>'+${order.contractor.country}">ulica<br \>Miasto<br \>Kraj</p>
     </div>
 
 

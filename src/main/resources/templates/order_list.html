@@ -25,8 +25,7 @@
     <h1 th:each="order : ${order_list_view}">
         <tr>
             <td th:text="${order.id}"/>
-            <!--/*@thymesVar id="contractorName" type="org.lukaszse.contractorsapp.orders.Order"*/-->
-            <td th:text="${order.contractorName}"/>
+            <td th:text="${order.contractor.name}"/>
             <td th:text="${order.orderName}"/>
             <td><a id="viewOrder">View Order</a></td>
             <td><a id="deleteOrder">Delete</a></td>

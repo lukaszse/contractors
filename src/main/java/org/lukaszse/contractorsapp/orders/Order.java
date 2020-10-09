@@ -2,7 +2,9 @@ package org.lukaszse.contractorsapp.orders;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.GenericGenerator;
+import org.lukaszse.contractorsapp.contractors.Contractor;
 
 import javax.persistence.*;
 
@@ -18,8 +20,9 @@ public class Order {
     @GenericGenerator(name = "inc", strategy = "increment")
     private Integer id;
 
-    @Column(name = "contractor_id")
-    private Integer contractorId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contractor_id")
+    private Contractor contractor;
 
     @Column(name = "order_name")
     private String orderName;
@@ -27,15 +30,15 @@ public class Order {
     @Column(name = "order_description")
     private String orderDescription;
 
-    // TODO: Add relation ManyToOne, between orders and contractors
+
 
 
     // == constructors ==
     public Order(){
     }
 
-    public Order(Integer contractorId, String orderName, String orderDescription) {
-        this.contractorId = contractorId;
+    public Order(Contractor contractor, String orderName, String orderDescription) {
+        this.contractor = contractor;
         this.orderName = orderName;
         this.orderDescription = orderDescription;
     }

@@ -1,0 +1,8 @@
+<thlogic>
+    <attr sel="#headId"
+          th:replace="~{fragments/head :: headFragment}"/>
+    <attr sel="#footerId"
+          th:replace="~{fragments/footer :: footerFragment}"/>
+    <attr sel="#homeId"
+          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).HOME}__}"/>
+</thlogic>

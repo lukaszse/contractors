@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
 
-@Data
+/*@Data
 @EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "selection_cards")
@@ -30,4 +30,4 @@ public class SelectionCard {
     String taskDescription;
 
     String justification;
-}
+}*/
