@@ -48,11 +48,11 @@
 
     <div id="contractor" align="center">
         <p>Contractor:</p>
-        <h3 th:text="${contractor.name}">Contractor Name</h3>
+        <h3 th:text="${order.contractor.name}">Contractor Name</h3>
 
-        <p th:utext="${contractor.street}+' '+${contractor.property}
-                +'<br \>'+${contractor.post}+' '+${contractor.city}
-                +'<br \>'+${contractor.country}">ulica<br \>Miasto<br \>Kraj</p>
+        <p th:utext="${order.contractor.name}+' '+${order.contractor.property}
+                +'<br \>'+${order.contractor.post}+' '+${order.contractor.city}
+                +'<br \>'+${order.contractor.country}">ulica<br \>Miasto<br \>Kraj</p>
     </div>
 
 

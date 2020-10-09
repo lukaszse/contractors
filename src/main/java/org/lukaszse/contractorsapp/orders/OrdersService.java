@@ -8,5 +8,4 @@ public interface OrdersService {
     OrdersRepository editOrder(Order order);
     OrdersRepository deleteOrder(int id);
     List<Order> findAll();
-    List<OrderView> findAllView();
 }

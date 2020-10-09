@@ -3,11 +3,10 @@ package org.lukaszse.contractorsapp.contractors;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.GenericGenerator;
+import org.lukaszse.contractorsapp.orders.Order;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @EqualsAndHashCode(of = "id")
@@ -21,6 +20,9 @@ public class Contractor {
     @GeneratedValue(generator = "inc")
     @GenericGenerator(name="inc", strategy = "increment")
     private Integer id;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "contractor")
+    private Set<Order> orders;
 
     private String name;
 

@@ -1,6 +1,7 @@
 package org.lukaszse.contractorsapp.orders;
 
 import lombok.extern.slf4j.Slf4j;
+import org.lukaszse.contractorsapp.contractors.Contractor;
 import org.lukaszse.contractorsapp.contractors.ContractorService;
 import org.lukaszse.contractorsapp.util.AttributeNames;
 import org.lukaszse.contractorsapp.util.Mappings;
@@ -31,30 +32,30 @@ public class OrderController {
     // == methods ==
     @GetMapping(Mappings.ORDER_LIST)
     public String viewOrderList(Model model) {
-        model.addAttribute(AttributeNames.ORDER_LIST_VIEW, ordersService.findAllView());
+        model.addAttribute(AttributeNames.ORDER_LIST_VIEW, ordersService.findAll());
         return ViewNames.ORDER_LIST;
     }
 
     @GetMapping(Mappings.ADD_ORDER)
     public String addOrder(Model model) {
-        Order order = new Order("", "");
-        model.addAttribute(AttributeNames.ORDER, order);
+        var orderWriter = new OrderWriter(0, "", "");
+        model.addAttribute(AttributeNames.ORDER, orderWriter);
         model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
         return ViewNames.ADD_ORDER;
     }
 
     @GetMapping(Mappings.EDIT_ORDER)
     public String editOrder(@RequestParam Integer id, Model model) {
-        Order order = ordersService.getOrder(id);
-        model.addAttribute(AttributeNames.ORDER, order);
+        var order = ordersService.getOrder(id);
+        var orderWriter = new OrderWriter(order);
+        model.addAttribute(AttributeNames.ORDER, orderWriter);
         model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
         return ViewNames.ADD_ORDER;
     }
 
     @PostMapping(Mappings.ADD_ORDER)
-    public String processAddOrder(@ModelAttribute(AttributeNames.ORDER) Order submitedOrder) {
-        Order order = submitedOrder;
-        ordersService.addOrder(order);
+    public String processAddOrder(@ModelAttribute(AttributeNames.ORDER) OrderWriter submitedOrder) {
+        ordersService.addOrder(submitedOrder.toOrder(contractorService));
         return "redirect:/" + Mappings.ORDER_LIST;
     }
 
@@ -67,7 +68,6 @@ public class OrderController {
     @GetMapping(Mappings.VIEW_ORDER)
     public String orderView(@RequestParam Integer id, Model model) {
         model.addAttribute(ordersService.getOrder(id));
-        model.addAttribute(ordersService.getOrder(id).getContractor());  // TODO: MantToOne relation used, but is to be improved in view
         return ViewNames.VIEW_ORDER;
     }
 }

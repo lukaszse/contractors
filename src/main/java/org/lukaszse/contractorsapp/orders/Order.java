@@ -2,6 +2,7 @@ package org.lukaszse.contractorsapp.orders;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.GenericGenerator;
 import org.lukaszse.contractorsapp.contractors.Contractor;
 
@@ -19,7 +20,7 @@ public class Order {
     @GenericGenerator(name = "inc", strategy = "increment")
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "contractor_id")
     private Contractor contractor;
 
@@ -36,7 +37,8 @@ public class Order {
     public Order(){
     }
 
-    public Order(String orderName, String orderDescription) {
+    public Order(Contractor contractor, String orderName, String orderDescription) {
+        this.contractor = contractor;
         this.orderName = orderName;
         this.orderDescription = orderDescription;
     }
