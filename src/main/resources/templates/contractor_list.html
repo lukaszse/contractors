@@ -5,12 +5,12 @@
     <title>Contractor</title>
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
-<H1 align="center">List of contractors</H1>
+<div th:replace="~{fragments/menu :: menuFragment}"/>
 
 
 <div class="container-md" align="center">
     <p>&nbsp;</p>
-    <h3><a id="home">Home</a>  |  <a id="addContractorId">Add New Contractor</a></h3>
+    <h5>Contractor list:</h5>
     <table class="table table-striped table-dark" border="2" cellpadding="10">
 
         <tr>
@@ -33,6 +33,8 @@
         </tr>
     </h1>
     </table>
+
+    <h5><a id="addContractorId">+ Add New Contractor</a></h5>
 </div>
 
 <div align="center">

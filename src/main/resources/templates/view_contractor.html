@@ -21,14 +21,12 @@
 
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
-<H1 align="center">Details about order</H1>
+<div th:replace="~{fragments/menu :: menuFragment}"/>
 <p>&nbsp;</p>
 
 <div id="order" class="container-md" align="center">
-    <h3>
-        <a id="contractorListId">Back to contractor list</a>
-    </h3>
 
+    <h5>Details about contractor:</h5>
     <table id="table" class="table table-striped table-dark" border="2" cellpadding="10">
             <tr>
                 <th>Id</th>
@@ -48,9 +46,9 @@
             </tr>
     </table>
 
-        <p><a id="editContractorId">Edit</a> |
+        <H5><a id="editContractorId">Edit</a> |
             <a id="deleteContractorId">Delete</a> |
-            <a href="javascript:genPDF()">Downoad PDF</a></p>
+            <a href="javascript:genPDF()">Downoad PDF</a></H5>
 </div>
 
 <div align="center">

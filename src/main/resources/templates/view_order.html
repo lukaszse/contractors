@@ -27,13 +27,12 @@
 
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
-<H1 align="center">Details about order</H1>
-<p>&nbsp;</p>
+<div th:replace="~{fragments/menu :: menuFragment}"/>
 
 <div class="container-md" align="center">
-    <h3>
-        <a id="orderListId">Back to order list</a>
-    </h3>
+    <p>&nbsp;</p>
+    <H5>View Order</H5>
+    <p>&nbsp;</p>
     <div id="principal" align="left">
         <p>Principal:</p>
         <h3 th:utext="${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_NAME}">FIRMA PRZYKLADOWA S.A.</h3>

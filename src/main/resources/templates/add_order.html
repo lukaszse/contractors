@@ -5,14 +5,12 @@
     <title>Contractor</title>
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
-<H1 align="center">Add new order</H1>
+<div th:replace="~{fragments/menu :: menuFragment}"/>
 
 
 <div align="center">
     <p>&nbsp;</p>
-    <h3>
-        <a id="orderListId">Back to order list</a>
-    </h3>
+        <H5>Add Edit Order</H5>
     <p>&nbsp;</p>
     <form th:action="@{add_order}" th:object="${order}" method="post">
         <table>
