@@ -16,7 +16,6 @@ public class Mappings {
     public static final String VIEW_ORDER = "view_order";
 
 
-
     // == constructors ==
     public Mappings() {
     }

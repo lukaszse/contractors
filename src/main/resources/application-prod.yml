@@ -1,0 +1,17 @@
+spring:
+  h2.console:
+    enabled: false
+    path: '/console'
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: validate
+
+keycloak:
+  auth-server-url: 'http://188.117.176.39:8180/auth/'
+  realm: 'ContractorsApp'
+  resource: 'contractors-spring-client'
+  public-client: true
+  ssl-required: "none"
+  confidential-port: 0
+  proxy-url: "http://192.168.55.210:8180/auth/"
