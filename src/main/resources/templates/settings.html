@@ -19,38 +19,87 @@
         <div class="col-md-8">
             <div>
                 <p>&nbsp;</p>
-                <H5 align="center">Application Settings (under construction)</H5>
+                <div class="alert alert-success" role="alert" th:if="${message != null}">
+                    <H5 align="center" class="text" th:text="${message}"></H5>
+                </div>
+
+                <H5 align="center" th:if="${message == null}">Application Settings (under construction)</H5>
                 <p>&nbsp;</p>
-<!--                <form th:action="@{add_order}" th:object="${order}" method="post">
+                <hr style="border-top: 1px dashed white;">
+                <H5 align="center">Company data</H5>
+                <p>&nbsp;</p>
+                <form th:action="@{settings}" th:object="${setting_set}" method="post">
+
+
+<!--                    <div class="form-group row">
+                        <label for="inputId" class="col-sm-3 col-form-label">Id</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control-plaintext" id="inputId" th:field="*{id}" readonly>
+                        </div>
+                    </div>-->
 
 
                     <div class="form-group row">
-                        <label for="selectCompany" class="col-sm-2 col-form-label">Contractor</label>
-                        <div class="col-sm-10">
-                            <select  id="selectCompany" class="form-control" th:field="*{contractorId}">
-                                <option th:each="contractorFromList : ${contractor_list}"
-                                        th:value="${contractorFromList.getId()}"
-                                        th:text="${contractorFromList.getName()}">Wireframe
-                                </option>
-                            </select>
+                        <label for="inputName" class="col-sm-3 col-form-label">Company Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputName" th:field="*{companyName}">
                         </div>
                     </div>
 
 
-
                     <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Order Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputName" th:field="*{orderName}">
+                        <label for="inputStr" class="col-sm-3 col-form-label">Street</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputStr" th:field="*{street}">
                         </div>
                     </div>
 
 
                     <div class="form-group row">
-                        <label for="inputDesc" class="col-sm-2 col-form-label">Description</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputDesc" th:field="*{orderDescription}">
+                        <label for="inputStr" class="col-sm-3 col-form-label">Property No.</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="inputStr" th:field="*{property}">
                         </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputPost" class="col-sm-3 col-form-label">Postal code</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputPost" th:field="*{post}">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="inputCity" class="col-sm-3 col-form-label">City</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputCity" th:field="*{city}">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="inputCountry" class="col-sm-3 col-form-label">Country</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputCountry" th:field="*{country}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputPhone" class="col-sm-3 col-form-label">Phone Number</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="inputPhone" th:field="*{phone}">
+                        </div>
+                    </div>
+
+                    <div>
+                        <hr style="border-top: 1px dashed white;">
+                        <h5 align="center">Other Settings</h5>
+                        <p><br></p>
+                        <p align="center" class="text-warning">under construction && additional settings will be added here later on</p>
+                        <p><br></p>
+
+                        <hr style="border-top: 1px dashed white;">
                     </div>
 
                     <div align="center">
@@ -58,7 +107,7 @@
                         <input type="reset" class="btn btn-light" value="Reset">
                     </div>
 
-                </form>-->
+                </form>
             </div>
         </div>
 
@@ -67,11 +116,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
 
 
 

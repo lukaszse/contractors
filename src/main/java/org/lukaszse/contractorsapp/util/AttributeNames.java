@@ -11,6 +11,7 @@ public class AttributeNames {
     public static final String ORDER_DTO = "order_dto";
     public static final String CONTRACTORS_NAME_LIST = "contactors_names";
     public static final String ORDER = "order";
+    public static final String SETTINGS = "setting_set";
 
     // == constructor ==
     public AttributeNames() {

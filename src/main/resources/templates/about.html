@@ -23,18 +23,19 @@
                 <p>&nbsp;</p>
                 <p>This is demo application which is being developed for learning purpose. It is small web application
                     which will helps easily manage orders and contractors.
-                Some features are not implemented yet but finally this app will have following functionality:</p>
+                Some features are not implemented yet, since the app is in early development phase but finally this app will have following functionality:</p>
                 <ul>
-                    <li>adding, editing and deleting contractors and information about contractors including address,
+                    <li>Adding, editing and deleting contractors and information about contractors including address,
                         total amount of orders, contractors rating etc.</li>
                     <li>adding, editing and deleting orders</li>
-                    <li>multi stages contractor selection process: selection card with recommended contractor will be
+                    <li>Multi stages contractor selection process: selection card with recommended contractor will be
                         prepared by user and after manager approval order will be automatically added to the system
                      (this feature is not implemented yet)</li>
-                    <li>multi-currency support. Exchange rates downloaded from the NBP Web API (this feature is not implemented yet)</li>
-                    <li>generating psd with orders</li>
-                    <li>statistics, charts and analysis of historical data (i.a. amount of orders for contractors in time, percentage of orders completed in time)</li>
-                    <li>searching engine</li>
+                    <li>Multi-currency support. Exchange rates downloaded from the NBP Web API (this feature is not implemented yet)</li>
+                    <li>Generating pdf with orders (is to be fixed since UTF-8 is not supported</li>
+                    <li>Statistics, charts and analysis of historical data (i.a. amount of orders for contractors in time, percentage of orders completed in time)</li>
+                    <li>Searching engine (still not implemented).</li>
+                    <li><b>Exception handling (is still not implemented in 100% - wrong data sent by form can cause illegal exception).</b></li>
 
                 </ul>
 
@@ -42,11 +43,11 @@
                 <ui>
                     <p><b class="text-info">Used technologies: </b>Java 11, Spring Boot, Maven, H2 database, Flyway, Hibernate, Thymeleaf, Keycloack, SpringSecurity, Lombok, JavaScript</p>
                     <i class="fab fa-github"></i>
-                    <p><b class="text-info">Information about server</b></p>
+                    <p><b class="text-info">Information about server:</b></p>
                     <ul>
                     <li><b>Server: </b> Rapspberry Pi 4 B</li>
-                    <li><b>System: </b> Linux - 11.0.8+10-post-Raspbian-1deb10u1 </li>
-                    <li><b>Web App Container: </b> Apache Tomcat/8.5.38 (Debian)</li>
+                    <li><b>System: </b> Linux Raspbian 11.0.8 </li>
+                    <li><b>Web App Container: </b> Apache Tomcat 8.5.38 (Debian)</li>
                     </ul>
                     <p><b class="text-info">Sources: </b><a href="https://github.com/lukaszse/contractors">github.com/lukaszse/contractors</a></p>
                 </ui>

@@ -47,7 +47,7 @@ public class ContractorController {
 
     @GetMapping(Mappings.ADD_CONTRACTOR)
     public String addContractor(Model model) {
-        Contractor newContractor = new Contractor("", "", 0, "", "", "", 0);
+        Contractor newContractor = new Contractor("", "", 0, "", "", "", 0); // TODO - to be fixed
         log.info("ID FROM GETGMAPPING ADD METHOD = {}", newContractor.getId());
         model.addAttribute(AttributeNames.CONTRACTOR, newContractor);
         return ViewNames.ADD_CONTRACTOR;

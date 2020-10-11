@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.lukaszse.contractorsapp.contractors.ContractorService;
 import org.lukaszse.contractorsapp.orders.DTO.OrderReader;
 import org.lukaszse.contractorsapp.orders.DTO.OrderWriter;
+import org.lukaszse.contractorsapp.settings.SettingService;
 import org.lukaszse.contractorsapp.util.AttributeNames;
 import org.lukaszse.contractorsapp.util.Mappings;
 import org.lukaszse.contractorsapp.util.ViewNames;
@@ -22,12 +23,14 @@ public class OrderController {
     // == fields ==
     private OrdersService ordersService;
     private ContractorService contractorService;
+    private SettingService settingService;
 
     // == constructors ==
     @Autowired
-    public OrderController(OrdersService ordersService, ContractorService contractorService) {
+    public OrderController(OrdersService ordersService, ContractorService contractorService, SettingService settingService) {
         this.ordersService = ordersService;
         this.contractorService = contractorService;
+        this.settingService = settingService;
     }
 
     // == methods ==
@@ -70,7 +73,8 @@ public class OrderController {
     public String orderView(@RequestParam Integer id, Model model) {
         var orderReader = new OrderReader(ordersService.getOrder(id));
         model.addAttribute(AttributeNames.ORDER, orderReader);
-        log.info("Order description: " + orderReader.getOrderDescription() + " po przetworzeniu: " + orderReader.getPrice());
+        model.addAttribute("settingsSet", settingService.getCurrentSettings());
+        log.info("Order description: " + orderReader.getOrderDescription() + " price after processing " + orderReader.getPrice());
         return ViewNames.VIEW_ORDER;
     }
 }
