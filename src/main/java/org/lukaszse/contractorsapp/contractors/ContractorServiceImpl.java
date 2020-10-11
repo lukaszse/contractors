@@ -36,8 +36,8 @@ public class ContractorServiceImpl implements ContractorService {
     }
 
     @Override
-    public Contractor getContractor(int id) {
-        return repository.getOne(id);
+    public Contractor getContractor(Integer id) {
+            return repository.getOne(id);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class ContractorServiceImpl implements ContractorService {
     }
 
     @Override
-    public ContractorsRepository deleteContractor(int id) {
+    public ContractorsRepository deleteContractor(Integer id) {
         repository.deleteById(id);
         return repository;
     }

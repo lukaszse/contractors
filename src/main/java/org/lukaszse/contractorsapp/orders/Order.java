@@ -43,9 +43,10 @@ public class Order {
     public Order(){
     }
 
-    public Order(Contractor contractor, String orderName, String orderDescription) {
+    public Order(Contractor contractor, BigDecimal price, String orderName, String orderDescription) {
         this.orderDate = LocalDate.now();
         this.contractor = contractor;
+        this.price = price;
         this.orderName = orderName;
         this.orderDescription = orderDescription;
     }

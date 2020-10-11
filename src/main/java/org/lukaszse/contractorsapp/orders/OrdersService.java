@@ -3,9 +3,9 @@ package org.lukaszse.contractorsapp.orders;
 import java.util.List;
 
 public interface OrdersService {
-    Order getOrder(int id);
+    Order getOrder(Integer id);
     OrdersRepository addOrder(Order order);
     OrdersRepository editOrder(Order order);
-    OrdersRepository deleteOrder(int id);
+    OrdersRepository deleteOrder(Integer id);
     List<Order> findAll();
 }
