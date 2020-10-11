@@ -39,7 +39,7 @@ public class ContractorController {
     }
 
     @GetMapping(Mappings.VIEW_CONTRACTOR)
-    public String viewContractor(@RequestParam int id, Model model) {
+    public String viewContractor(@RequestParam Integer id, Model model) {
         Contractor contractor = contractorService.getContractor(id);
         model.addAttribute(AttributeNames.CONTRACTOR, contractor);
         return ViewNames.VIEW_CONTRACTOR;
@@ -54,7 +54,7 @@ public class ContractorController {
     }
 
     @GetMapping(Mappings.EDIT_CONTRACTOR)
-    public String addContractor(@RequestParam int id, Model model) {
+    public String addContractor(@RequestParam Integer id, Model model) {
         Contractor contractor = contractorService.getContractor(id);
         log.info("ID FROM GETGMAPPING EDIT METHOD = {}", contractor.getId());
         log.info("CONTRACTOR NAME = {}", contractor.getName());
@@ -83,7 +83,7 @@ public class ContractorController {
     }
 
     @GetMapping(Mappings.DELETE_CONTRACTOR)
-    public String deleteContractor(@RequestParam int id) {
+    public String deleteContractor(@RequestParam Integer id) {
         contractorService.deleteContractor(id);
         return "redirect:/" + Mappings.CONTRACTORS_LIST;
     }

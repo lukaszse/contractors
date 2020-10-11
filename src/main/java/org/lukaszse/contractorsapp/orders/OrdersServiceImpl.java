@@ -32,7 +32,7 @@ public class OrdersServiceImpl implements OrdersService{
 
     // == methods ==
     @Override
-    public Order getOrder(int id) {
+    public Order getOrder(Integer id) {
         return repository.getOne(id);
     }
 
@@ -49,7 +49,7 @@ public class OrdersServiceImpl implements OrdersService{
     }
 
     @Override
-    public OrdersRepository deleteOrder(int id) {
+    public OrdersRepository deleteOrder(Integer id) {
         repository.deleteById(id);
         return repository;
     }

@@ -3,9 +3,9 @@ package org.lukaszse.contractorsapp.contractors;
 import java.util.List;
 
 public interface ContractorService {
-    Contractor getContractor(int id);
+    Contractor getContractor(Integer id);
     ContractorsRepository addContractor(Contractor contractor);
     ContractorsRepository editContractor(Contractor contractor);
-    ContractorsRepository deleteContractor(int id);
+    ContractorsRepository deleteContractor(Integer id);
     List<Contractor> findAll();
 }

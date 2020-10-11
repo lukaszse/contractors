@@ -59,7 +59,10 @@ public class OrderController {
 
     @PostMapping(Mappings.ADD_ORDER)
     public String processAddOrder(@ModelAttribute(AttributeNames.ORDER) OrderWriter submitedOrder) {
-        ordersService.addOrder(submitedOrder.toOrder(contractorService));
+        log.info("OrderWriter PRICE from form: " + submitedOrder.getPrice());
+        log.info("OrderWriter NAME from form: " + submitedOrder.getOrderName());
+        log.info("OrderWriter DESCRIPTION from form: " + submitedOrder.getOrderDescription());
+        ordersService.addOrder(submitedOrder.toOrder(ordersService, contractorService));
         return "redirect:/" + Mappings.ORDER_LIST;
     }
 
