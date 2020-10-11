@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head id="headId">
+    <meta charset="UTF-8">
+    <title>Contractor</title>
+</head>
+<body class="p-3 mb-2 bg-dark text-white">
+<div th:replace="~{fragments/menu :: menuFragment}"/>
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-2">
+        </div>
+
+
+
+        <div class="col-md-8">
+            <div>
+                <p>&nbsp;</p>
+                <div class="alert alert-success" role="alert" th:if="${message != null}">
+                    <H5 align="center" class="text" th:text="${message}"></H5>
+                </div>
+
+                <H5 align="center" th:if="${message == null}">Application Settings (under construction)</H5>
+                <p>&nbsp;</p>
+                <hr style="border-top: 1px dashed white;">
+                <H5 align="center">Company data</H5>
+                <p>&nbsp;</p>
+                <form th:action="@{settings}" th:object="${setting_set}" method="post">
+
+
+<!--                    <div class="form-group row">
+                        <label for="inputId" class="col-sm-3 col-form-label">Id</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control-plaintext" id="inputId" th:field="*{id}" readonly>
+                        </div>
+                    </div>-->
+
+
+                    <div class="form-group row">
+                        <label for="inputName" class="col-sm-3 col-form-label">Company Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputName" th:field="*{companyName}">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="inputStr" class="col-sm-3 col-form-label">Street</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputStr" th:field="*{street}">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="inputStr" class="col-sm-3 col-form-label">Property No.</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="inputStr" th:field="*{property}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputPost" class="col-sm-3 col-form-label">Postal code</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputPost" th:field="*{post}">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="inputCity" class="col-sm-3 col-form-label">City</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputCity" th:field="*{city}">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="inputCountry" class="col-sm-3 col-form-label">Country</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputCountry" th:field="*{country}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputPhone" class="col-sm-3 col-form-label">Phone Number</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="inputPhone" th:field="*{phone}">
+                        </div>
+                    </div>
+
+                    <div>
+                        <hr style="border-top: 1px dashed white;">
+                        <h5 align="center">Other Settings</h5>
+                        <p><br></p>
+                        <p align="center" class="text-warning">under construction && additional settings will be added here later on</p>
+                        <p><br></p>
+
+                        <hr style="border-top: 1px dashed white;">
+                    </div>
+
+                    <div align="center">
+                        <input type="submit" class="btn btn-light" value="Submit">
+                        <input type="reset" class="btn btn-light" value="Reset">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+        <div class="col-md-2">
+        </div>
+    </div>
+</div>
+
+
+
+<div align="center">
+    <footer id="footerId">this is a footer</footer>
+</div>
+
+</body>
+
+</html>

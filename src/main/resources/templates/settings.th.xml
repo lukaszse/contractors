@@ -1,0 +1,10 @@
+<thlogic>
+    <attr sel="#headId"
+          th:replace="~{fragments/head :: headFragment}"/>
+    <attr sel="#footerId"
+          th:replace="~{fragments/footer :: footerFragment}"/>
+    <attr sel="#home"
+          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).HOME}__}"/>
+    <attr sel="#orderListId"
+          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).ORDER_LIST}__}"/>
+</thlogic>

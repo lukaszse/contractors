@@ -1,16 +1,19 @@
-package org.lukaszse.contractorsapp.orders;
+package org.lukaszse.contractorsapp.orders.DTO;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.lukaszse.contractorsapp.contractors.Contractor;
 import org.lukaszse.contractorsapp.contractors.ContractorService;
-import org.lukaszse.contractorsapp.contractors.ContractorsRepository;
+import org.lukaszse.contractorsapp.orders.Order;
 
-import javax.persistence.*;
+import java.time.LocalDate;
 
 public class OrderWriter {
 
     // == fields ==
+    private LocalDate orderDate;
+
     private int contractorId;
+
+    private String price;
 
     private String orderName;
 
@@ -18,20 +21,18 @@ public class OrderWriter {
 
 
     // == constructors ==
-    public OrderWriter() {
+
+    OrderWriter () {
     }
 
-    public OrderWriter(Order order) {
-        this.contractorId = order.getContractor().getId();
-        this.orderName = order.getOrderName();
-        this.orderDescription = order.getOrderDescription();
-    }
-
-    public OrderWriter(int contractorId, String orderName, String orderDescription) {
+    OrderWriter(LocalDate orderDate, int contractorId, String price, String orderName, String orderDescription) {
+        this.orderDate = orderDate;
         this.contractorId = contractorId;
+        this.price = price;
         this.orderName = orderName;
         this.orderDescription = orderDescription;
     }
+
 
     public Order toOrder(final ContractorService service) {
         return new Order(

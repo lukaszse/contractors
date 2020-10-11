@@ -1,8 +1,10 @@
 package org.lukaszse.contractorsapp.orders;
 
 import lombok.extern.slf4j.Slf4j;
-import org.lukaszse.contractorsapp.contractors.Contractor;
 import org.lukaszse.contractorsapp.contractors.ContractorService;
+import org.lukaszse.contractorsapp.orders.DTO.OrderReader;
+import org.lukaszse.contractorsapp.orders.DTO.OrderWriter;
+import org.lukaszse.contractorsapp.settings.SettingService;
 import org.lukaszse.contractorsapp.util.AttributeNames;
 import org.lukaszse.contractorsapp.util.Mappings;
 import org.lukaszse.contractorsapp.util.ViewNames;
@@ -21,12 +23,14 @@ public class OrderController {
     // == fields ==
     private OrdersService ordersService;
     private ContractorService contractorService;
+    private SettingService settingService;
 
     // == constructors ==
     @Autowired
-    public OrderController(OrdersService ordersService, ContractorService contractorService) {
+    public OrderController(OrdersService ordersService, ContractorService contractorService, SettingService settingService) {
         this.ordersService = ordersService;
         this.contractorService = contractorService;
+        this.settingService = settingService;
     }
 
     // == methods ==
@@ -38,8 +42,8 @@ public class OrderController {
 
     @GetMapping(Mappings.ADD_ORDER)
     public String addOrder(Model model) {
-        var orderWriter = new OrderWriter(0, "", "");
-        model.addAttribute(AttributeNames.ORDER, orderWriter);
+        var orderReader = new OrderReader();
+        model.addAttribute(AttributeNames.ORDER, orderReader);
         model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
         return ViewNames.ADD_ORDER;
     }
@@ -47,8 +51,8 @@ public class OrderController {
     @GetMapping(Mappings.EDIT_ORDER)
     public String editOrder(@RequestParam Integer id, Model model) {
         var order = ordersService.getOrder(id);
-        var orderWriter = new OrderWriter(order);
-        model.addAttribute(AttributeNames.ORDER, orderWriter);
+        var orderReader = new OrderReader(order);
+        model.addAttribute(AttributeNames.ORDER, orderReader);
         model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
         return ViewNames.ADD_ORDER;
     }
@@ -67,7 +71,10 @@ public class OrderController {
 
     @GetMapping(Mappings.VIEW_ORDER)
     public String orderView(@RequestParam Integer id, Model model) {
-        model.addAttribute(ordersService.getOrder(id));
+        var orderReader = new OrderReader(ordersService.getOrder(id));
+        model.addAttribute(AttributeNames.ORDER, orderReader);
+        model.addAttribute("settingsSet", settingService.getCurrentSettings());
+        log.info("Order description: " + orderReader.getOrderDescription() + " price after processing " + orderReader.getPrice());
         return ViewNames.VIEW_ORDER;
     }
 }

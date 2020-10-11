@@ -35,42 +35,59 @@
     <p>&nbsp;</p>
     <div id="principal" align="left">
         <p>Principal:</p>
-        <h3 th:utext="${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_NAME}">FIRMA PRZYKLADOWA S.A.</h3>
-        <p th:utext="${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_STREET}
-                +' '+${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_PROPERTY_NO}
-                +'<br \>'+${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_POST}
-                +' '+${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_CITY}
-                +'<br \>'+${T(org.lukaszse.contractorsapp.util.CompanyData).COMPANY_COUNTRY}">ulica<br \>Miasto<br \>Kraj</p>
+        <h3 th:utext="${settingsSet.companyName}">FIRMA PRZYKLADOWA S.A.</h3>
+        <p th:utext="${settingsSet.street}
+                +' '+${settingsSet.property}
+                +'<br \>'+${settingsSet.post}
+                +' '+${settingsSet.city}
+                +'<br \>'+${settingsSet.country}">ulica<br \>Miasto<br \>Kraj</p>
 
         <h4 th:text="'Order no: '+${order.id}">Order number</h4>
     </div>
 
-    <div id="contractor" align="center">
-        <p>Contractor:</p>
-        <h3 th:text="${order.contractor.name}">Contractor Name</h3>
 
-        <p th:utext="${order.contractor.name}+' '+${order.contractor.property}
-                +'<br \>'+${order.contractor.post}+' '+${order.contractor.city}
-                +'<br \>'+${order.contractor.country}">ulica<br \>Miasto<br \>Kraj</p>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+            </div>
+
+            <div class="col-md-4" align="left">
+                    <p>Contractor:</p>
+                    <h3 th:text="${order.contractor.name}">Contractor Name</h3>
+                    <p th:utext="${order.contractor.name}+' '+${order.contractor.property}
+                    +'<br \>'+${order.contractor.post}+' '+${order.contractor.city}
+                    +'<br \>'+${order.contractor.country}">ulica<br \>Miasto<br \>Kraj</p>
+            </div>
+
+            <div class="col-md-1">
+            </div>
+
+        </div>
     </div>
 
 
     <table id="table" class="table table-striped table-dark" border="2" cellpadding="10">
             <tr>
+                <th>Order Date</th>
+                <th>Price</th>
                 <th>Order Name</th>
                 <th>Contractor Description</th>
             </tr>
         <h1>
             <tr>
+                <td th:text="${order.orderDate}" />
+                <td th:text="${order.price}" />
                 <td th:text="${order.orderName}" />
                 <td th:text="${order.orderDescription}"/>
             </tr>
         </h1>
     </table>
 
-    <p><a id="editOrderId">Edit</a> |
-        <a id="deleteOrderId">Delete</a> |
-        <a href="javascript:genPDF()">Downoad PDF</a></p>
+    <a id="editOrderId" class="btn btn-light btn-sm" role="button" aria-pressed="true">Edit</a>
+    <a id="deleteOrderId" class="btn btn-light btn-sm" role="button" aria-pressed="true">Delete</a>
+    <a href="javascript:genPDF()" class="btn btn-light btn-sm" role="button" aria-pressed="true">Generate PDF</a>
 
 </div>
 
