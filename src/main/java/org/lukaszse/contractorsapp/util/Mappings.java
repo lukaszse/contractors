@@ -15,6 +15,8 @@ public class Mappings {
     public static final String HOME = "home";
     public static final String VIEW_ORDER = "view_order";
     public static final String LOGOUT = "logout";
+    public static final String SETTINGS = "settings";
+    public static final String ABOUT = "about";
 
 
     // == constructors ==

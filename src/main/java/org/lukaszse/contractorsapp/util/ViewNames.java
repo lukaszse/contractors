@@ -12,6 +12,8 @@ public class ViewNames {
     public static final String VIEW_ORDER = "view_order";
     public static final String INDEX = "index";
     public static final String LOGOUT = "logout";
+    public static final String SETTINGS = "settings";
+    public static final String ABOUT = "about";
 
     // == constructor ==
     public ViewNames() {

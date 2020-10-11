@@ -7,49 +7,99 @@
 <body class="p-3 mb-2 bg-dark text-white">
 <div th:replace="~{fragments/menu :: menuFragment}"/>
 
-<div align="center">
+<div>
 
-    <p>&nbsp;</p>
-    <H5>Add / Edit contractor</H5>
-    <p>&nbsp<br></p>
-    <table>
-    <form th:action="@{add_contractor}" th:object="${contractor}" method="post">
-        <tr>
-            <td>Id:   </td><td><input type="text" size="4" th:field="*{id}" readonly="true"/></td>
-        </tr>
 
-        <tr>
-            <td>Contractor name: </td><td><input type="text" size="30" th:field="*{name}" /></td>
-        </tr>
+    <div class="container">
+        <div class="row">
 
-        <tr>
-            <td>Phone number:  </td><td><input type="number" th:field="*{phone}" /></td>
-        </tr>
+            <div class="col-md-2">
+            </div>
 
-        <tr>
-            <td>City:  </td><td><input type="text" th:field="*{city}" /></td>
-        </tr>
+              <div class="col-md-8">
 
-        <tr>
-            <td>Postal Code:  </td><td><input type="text" th:field="*{post}" /></td>
-        </tr>
+                    <p>&nbsp;</p>
+                    <H5  align="center">Add / Edit contractor</H5>
+                    <p>&nbsp<br></p>
 
-        <tr>
-            <td>Street:  </td><td><input type="text" th:field="*{street}" /></td>
-        </tr>
+                    <form th:action="@{add_contractor}" th:object="${contractor}" method="post">
 
-        <tr>
-            <td>Property no:  </td><td><input type="number" th:field="*{property}" /></td>
-        </tr>
 
-        <tr>
-            <td>Country:  </td><td><input type="text" th:field="*{country}" /></td>
-        </tr>
+                        <div class="form-group row">
+                            <label for="inputId" class="col-sm-2 col-form-label">Contractor id</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control-plaintext" id="inputId" th:field="*{id}" readonly>
+                            </div>
+                        </div>
 
-        <tr>
-            <td></td><td><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></td>
-        </tr>
-    </table>
+                        <div class="form-group row">
+                            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputName" th:field="*{name}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputPhone" th:field="*{phone}">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="inputCity" class="col-sm-2 col-form-label">City</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputCity" th:field="*{city}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputPost" class="col-sm-2 col-form-label">Post</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputPost" th:field="*{post}">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="inputStreet" class="col-sm-2 col-form-label">Street</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputStreet" th:field="*{street}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputProperty" class="col-sm-2 col-form-label">Property</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputProperty" th:field="*{property}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputCountry" class="col-sm-2 col-form-label">Country</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputCountry" th:field="*{country}">
+                            </div>
+                        </div>
+
+                        <div align="center">
+                            <input type="submit" class="btn btn-light" value="Submit">
+                            <input type="reset" class="btn btn-light" value="Reset">
+                        </div>
+
+                    </form>
+
+
+                </div>
+
+            <div class="col-md-2">
+            </div>
+
+        </div>
+    </div>
+
+
 
 <div align="center">
     <footer id="footerId">this is a footer</footer>

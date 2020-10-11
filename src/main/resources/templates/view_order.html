@@ -45,23 +45,40 @@
         <h4 th:text="'Order no: '+${order.id}">Order number</h4>
     </div>
 
-    <div id="contractor" align="center">
-        <p>Contractor:</p>
-        <h3 th:text="${order.contractor.name}">Contractor Name</h3>
 
-        <p th:utext="${order.contractor.name}+' '+${order.contractor.property}
-                +'<br \>'+${order.contractor.post}+' '+${order.contractor.city}
-                +'<br \>'+${order.contractor.country}">ulica<br \>Miasto<br \>Kraj</p>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+            </div>
+
+            <div class="col-md-4" align="left">
+                    <p>Contractor:</p>
+                    <h3 th:text="${order.contractor.name}">Contractor Name</h3>
+                    <p th:utext="${order.contractor.name}+' '+${order.contractor.property}
+                    +'<br \>'+${order.contractor.post}+' '+${order.contractor.city}
+                    +'<br \>'+${order.contractor.country}">ulica<br \>Miasto<br \>Kraj</p>
+            </div>
+
+            <div class="col-md-1">
+            </div>
+
+        </div>
     </div>
 
 
     <table id="table" class="table table-striped table-dark" border="2" cellpadding="10">
             <tr>
+                <th>Order Date</th>
+                <th>Price</th>
                 <th>Order Name</th>
                 <th>Contractor Description</th>
             </tr>
         <h1>
             <tr>
+                <td th:text="${order.orderDate}" />
+                <td th:text="${order.price}" />
                 <td th:text="${order.orderName}" />
                 <td th:text="${order.orderDescription}"/>
             </tr>
