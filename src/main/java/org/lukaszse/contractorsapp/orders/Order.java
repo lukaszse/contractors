@@ -5,8 +5,13 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.GenericGenerator;
 import org.lukaszse.contractorsapp.contractors.Contractor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -28,11 +33,16 @@ public class Order {
     @JoinColumn(name = "contractor_id")
     private Contractor contractor;
 
+    @NotNull(message = "Field Price must not be null")
+    @Digits(integer = 10, fraction = 2)
+    @DecimalMin(value = "0.0", inclusive = true)
     private BigDecimal price;
 
+    @NotBlank(message = "Field Order Name must not be empty")
     @Column(name = "order_name")
     private String orderName;
 
+    @NotBlank(message = "Field Order Description must not be empty")
     @Column(name = "order_description")
     private String orderDescription;
 

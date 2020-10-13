@@ -6,6 +6,10 @@ import org.hibernate.annotations.GenericGenerator;
 import org.lukaszse.contractorsapp.orders.Order;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import java.math.BigInteger;
 import java.util.Set;
 
 @Data
@@ -24,41 +28,32 @@ public class Contractor {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "contractor")
     private Set<Order> orders;
 
+    @NotBlank(message = "Field Name must not be empty.")
     private String name;
 
+    @NotBlank(message = "Field Street must not be empty.")
     private String street;
 
+    @Positive(message = "Property Value must be positive")
+    @NotNull(message = "Field Property must not be empty")
     private Integer property;
 
+    @NotBlank(message = "Field Post must not be empty.")
     private String post;
 
+    @NotBlank(message = "Field City must not be empty.")
     private String city;
 
+    @NotBlank(message = "Field Country must not be empty.")
     private String country;
 
-    private Integer phone;
+    @Positive(message = "Phone must be positive number")
+    @NotNull(message = "Field Phone must not be empty")
+    private Long phone;
 
-    // TODO: Add relation OneToMany, between contractor and orders
 
     // == Hibernate (JPA) needs it
     public Contractor() {
-    }
-
-    public Contractor(String name,
-                      String street,
-                      Integer property,
-                      String post,
-                      String city,
-                      String country,
-                      Integer phone) {
-
-        this.name = name;
-        this.street = street;
-        this.property = property;
-        this.post = post;
-        this.city = city;
-        this.country = country;
-        this.phone = phone;
     }
 
 

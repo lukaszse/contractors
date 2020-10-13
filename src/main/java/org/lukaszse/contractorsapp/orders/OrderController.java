@@ -11,10 +11,13 @@ import org.lukaszse.contractorsapp.util.ViewNames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 @Slf4j
 @Controller
@@ -58,12 +61,21 @@ public class OrderController {
     }
 
     @PostMapping(Mappings.ADD_ORDER)
-    public String processAddOrder(@ModelAttribute(AttributeNames.ORDER) OrderWriter submitedOrder) {
-        log.info("OrderWriter PRICE from form: " + submitedOrder.getPrice());
-        log.info("OrderWriter NAME from form: " + submitedOrder.getOrderName());
-        log.info("OrderWriter DESCRIPTION from form: " + submitedOrder.getOrderDescription());
-        ordersService.addOrder(submitedOrder.toOrder(ordersService, contractorService));
-        return "redirect:/" + Mappings.ORDER_LIST;
+    public String processAddOrder(
+            @ModelAttribute(AttributeNames.ORDER) @Valid OrderWriter submitedOrder,
+            BindingResult bindingResult,
+            Model model
+    ) {
+        if(!bindingResult.hasErrors()) {
+            log.info("OrderWriter PRICE from form: " + submitedOrder.getPrice());
+            log.info("OrderWriter NAME from form: " + submitedOrder.getOrderName());
+            log.info("OrderWriter DESCRIPTION from form: " + submitedOrder.getOrderDescription());
+            ordersService.addOrder(submitedOrder.toOrder(ordersService, contractorService));
+            return "redirect:/" + Mappings.ORDER_LIST;
+        }
+        model.addAttribute(AttributeNames.ORDER, submitedOrder);
+        model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
+        return ViewNames.ADD_ORDER;
     }
 
     @GetMapping(Mappings.DELETE_ORDER)

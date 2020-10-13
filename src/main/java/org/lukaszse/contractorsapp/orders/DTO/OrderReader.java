@@ -8,6 +8,7 @@ import org.lukaszse.contractorsapp.orders.Order;
 import org.lukaszse.contractorsapp.orders.OrdersService;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 public class OrderReader {
@@ -30,18 +31,6 @@ public class OrderReader {
 
     // == constructors ==
     public OrderReader() {
-
-        // this is just for test
-        // TODO this needs to be deleted and SQL base tables are to be revised.
-        //  NullPointerExeption protection to be done for particular fields;
-
-        this.id = null;
-        this.orderDate = LocalDate.now();
-        this.contractorId = 0;
-        //this.contractor = null;
-        this.price = "0.00";
-        this.orderName = "";
-        this.orderDescription = "";
     }
 
     public OrderReader(Order order) {
@@ -90,5 +79,25 @@ public class OrderReader {
 
     public String getPrice() {
         return price;
+    }
+
+    void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    void setContractorId(Integer contractorId) {
+        this.contractorId = contractorId;
+    }
+
+    void setPrice(String price) {
+        this.price = price;
+    }
+
+    void setOrderName(String orderName) {
+        this.orderName = orderName;
+    }
+
+    void setOrderDescription(String orderDescription) {
+        this.orderDescription = orderDescription;
     }
 }
