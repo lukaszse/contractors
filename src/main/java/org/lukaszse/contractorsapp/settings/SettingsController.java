@@ -9,9 +9,12 @@ import org.lukaszse.contractorsapp.util.Mappings;
 import org.lukaszse.contractorsapp.util.ViewNames;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Slf4j
 @Controller
@@ -34,12 +37,18 @@ public class SettingsController {
     }
 
     @PostMapping(Mappings.SETTINGS)
-    String updateSettings(@ModelAttribute(AttributeNames.SETTINGS) SettingsWriter settingsWriter, Model model) {
-        log.info("updateSettings() method invoked (POST)");
-        settingService.writeSettings(settingsWriter.toSettings());
-        var settingReader = new SettingsReader(settingService.getCurrentSettings());
-        model.addAttribute(AttributeNames.SETTINGS, settingReader);
-        model.addAttribute("message", "Settings successfully updated!");
+    String updateSettings(
+            @ModelAttribute(AttributeNames.SETTINGS) @Valid SettingsWriter settingsWriter,
+            BindingResult bindingResult,
+            Model model
+    ) {
+
+        if(!bindingResult.hasErrors()) {
+            log.info("updateSettings() method invoked (POST)");
+            settingService.writeSettings(settingsWriter.toSettings());
+            model.addAttribute("message", "Settings successfully updated!");
+        }
+        model.addAttribute(AttributeNames.SETTINGS, settingsWriter);
         log.info("Settings from database imported. id = " + settingService.getCurrentSettings().getId());
         return ViewNames.SETTINGS;
     }

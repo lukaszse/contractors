@@ -20,23 +20,22 @@
 
                     <p>&nbsp;</p>
                     <H5  align="center">Add / Edit contractor</H5>
-                    <p>&nbsp<br></p>
+                  <p>&nbsp<br></p>
 
-                    <form th:action="@{add_contractor}" th:object="${contractor}" method="post">
+                  <form th:action="@{add_contractor}" th:object="${contractor}" method="post">
 
-                        <div align="center" class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('all')}" >
-                            <h5>Error. Wrong data was submitted.</h5>
-                            <p><i th:errors="*{all}">Incorrect date</i></p>
-                        </div>
+                      <div align="center" class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('all')}" >
+                          <h5>Error. Wrong data format:</h5>
+                          <i th:errors="*{all}">Incorrect date</i>
+                      </div>
+                      <p>&nbsp<br></p>
 
-
-
-                        <div class="form-group row">
-                            <label for="inputId" class="col-sm-2 col-form-label">Contractor id</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control-plaintext" id="inputId" th:field="*{id}" readonly>
-                            </div>
-                        </div>
+                      <!--                        <div class="form-group row">
+                                                  <label for="inputId" class="col-sm-2 col-form-label">Contractor id</label>
+                                                  <div class="col-sm-10">
+                                                      <input type="number" class="form-control-plaintext" id="inputId" th:field="*{id}" readonly>
+                                                  </div>
+                                              </div>-->
 
                         <div class="form-group row">
                             <label for="inputName" class="col-sm-2 col-form-label">Name</label>

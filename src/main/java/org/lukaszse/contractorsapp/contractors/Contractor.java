@@ -28,27 +28,27 @@ public class Contractor {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "contractor")
     private Set<Order> orders;
 
-    @NotBlank(message = "Field name must not be empty.")
+    @NotBlank(message = "Field Name must not be empty.")
     private String name;
 
-    @NotBlank(message = "Field street must not be empty.")
+    @NotBlank(message = "Field Street must not be empty.")
     private String street;
 
-    @Positive(message = "Property value must be positive")
-    @NotNull(message = "Field property must not be empty")
+    @Positive(message = "Property Value must be positive")
+    @NotNull(message = "Field Property must not be empty")
     private Integer property;
 
-    @NotBlank(message = "Field post must not be empty.")
+    @NotBlank(message = "Field Post must not be empty.")
     private String post;
 
-    @NotBlank(message = "Field city must not be empty.")
+    @NotBlank(message = "Field City must not be empty.")
     private String city;
 
-    @NotBlank(message = "Field country must not be empty.")
+    @NotBlank(message = "Field Country must not be empty.")
     private String country;
 
     @Positive(message = "Phone must be positive number")
-    @NotNull(message = "Field phone must not be empty")
+    @NotNull(message = "Field Phone must not be empty")
     private Long phone;
 
 

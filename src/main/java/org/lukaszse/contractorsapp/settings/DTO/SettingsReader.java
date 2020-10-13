@@ -8,6 +8,9 @@ import org.lukaszse.contractorsapp.settings.Settings;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 
 /*
@@ -46,11 +49,7 @@ public class SettingsReader {
         this.post = settings.getPost();
         this.city = settings.getCity();
         this.country = settings.getCountry();
-        this.phone = settings.getPhone();
-    }
-
-    public Integer getId() {
-        return id;
+        this.phone = settings.getPhone();;
     }
 
     public String getCompanyName() {

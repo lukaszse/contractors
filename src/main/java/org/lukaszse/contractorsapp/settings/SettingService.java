@@ -3,6 +3,7 @@ package org.lukaszse.contractorsapp.settings;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j

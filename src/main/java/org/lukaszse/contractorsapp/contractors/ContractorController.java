@@ -6,6 +6,7 @@ import org.lukaszse.contractorsapp.util.Mappings;
 import org.lukaszse.contractorsapp.util.ViewNames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -66,6 +67,7 @@ public class ContractorController {
         return ViewNames.ADD_CONTRACTOR;
     }
 
+    @Transactional
     @PostMapping(Mappings.ADD_CONTRACTOR)
     public String processAddOrEditContractor(
             @ModelAttribute(AttributeNames.CONTRACTOR) @Valid Contractor contractor,

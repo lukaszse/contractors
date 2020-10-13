@@ -7,6 +7,9 @@ import org.lukaszse.contractorsapp.orders.Order;
 import org.lukaszse.contractorsapp.orders.OrdersService;
 import org.slf4j.Logger;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -18,12 +21,17 @@ public class OrderWriter {
 
     private LocalDate orderDate;
 
+    @NotNull(message = "Field Contractor must not be empty")
     private Integer contractorId;
 
+    @NotBlank(message = "Field Price must not be null")
+    @Pattern(regexp = "^[0-9]+([.,][0-9]{1,2})?", message = "Price must contain integer optionally with 1 or 2 decimal places")
     private String  price;
 
+    @NotBlank(message = "Field Order Name must not be empty")
     private String orderName;
 
+    @NotBlank(message = "Field Order Description must not be empty")
     private String orderDescription;
 
 
@@ -45,12 +53,7 @@ public class OrderWriter {
 
         // TODO this method is to be revised (improvement possible)
 
-
-        if(price == null) {
-            price = null;
-        } else {
-            price = price.replace(',', '.'); //TODO conversion is to be revised. Format controll to be added
-        }
+        price = price.replace(',', '.');
 
         log.info("!!!! Id = {}", id);
         if(id == null) {
@@ -92,6 +95,14 @@ public class OrderWriter {
         return orderDescription;
     }
 
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public Integer getContractorId() {
+        return contractorId;
+    }
+
     public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }
@@ -115,4 +126,6 @@ public class OrderWriter {
     public static Logger getLog() {
         return log;
     }
+
+
 }
