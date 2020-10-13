@@ -7,10 +7,14 @@ import org.lukaszse.contractorsapp.util.ViewNames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
+import java.math.BigInteger;
 
 @Slf4j
 @Controller
@@ -47,7 +51,7 @@ public class ContractorController {
 
     @GetMapping(Mappings.ADD_CONTRACTOR)
     public String addContractor(Model model) {
-        Contractor newContractor = new Contractor("", "", 0, "", "", "", 0); // TODO - to be fixed
+        Contractor newContractor = new Contractor();
         log.info("ID FROM GETGMAPPING ADD METHOD = {}", newContractor.getId());
         model.addAttribute(AttributeNames.CONTRACTOR, newContractor);
         return ViewNames.ADD_CONTRACTOR;
@@ -63,8 +67,14 @@ public class ContractorController {
     }
 
     @PostMapping(Mappings.ADD_CONTRACTOR)
-    public String processAddOrEditContractor(@ModelAttribute(AttributeNames.CONTRACTOR) Contractor contractor) {
+    public String processAddOrEditContractor(
+            @ModelAttribute(AttributeNames.CONTRACTOR) @Valid Contractor contractor,
+            BindingResult bindingResult
+    ) {
 
+        if(bindingResult.hasErrors()) {
+            return ViewNames.ADD_CONTRACTOR;
+        }
 
         if(contractor.getId() == null) {
             log.info("GETID = {}", contractor.getId());

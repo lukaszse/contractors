@@ -6,5 +6,5 @@ create table contractors (
                 post varchar(6),
                 city varchar(50),
                 country varchar(50),
-                phone int
+                phone long
 );
