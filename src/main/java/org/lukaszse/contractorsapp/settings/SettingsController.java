@@ -2,6 +2,9 @@ package org.lukaszse.contractorsapp.settings;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.Pointcut;
+import org.lukaszse.contractorsapp.settings.CurrencyExchangeRates.CurrencyRates;
+import org.lukaszse.contractorsapp.settings.CurrencyExchangeRates.CurrencyRatesNBPtable;
+import org.lukaszse.contractorsapp.settings.CurrencyExchangeRates.CurrencyRatesReader;
 import org.lukaszse.contractorsapp.settings.DTO.SettingsReader;
 import org.lukaszse.contractorsapp.settings.DTO.SettingsWriter;
 import org.lukaszse.contractorsapp.util.AttributeNames;
@@ -15,6 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
@@ -51,5 +56,12 @@ public class SettingsController {
         model.addAttribute(AttributeNames.SETTINGS, settingsWriter);
         log.info("Settings from database imported. id = " + settingService.getCurrentSettings().getId());
         return ViewNames.SETTINGS;
+    }
+
+    @ModelAttribute(name = AttributeNames.CURRENCY)
+    public List<CurrencyRates> currencyRates() {
+        var currencyRates = CurrencyRatesReader.getRates();
+        log.info("LISTA WALUT: " + currencyRates.toString());
+        return currencyRates;
     }
 }

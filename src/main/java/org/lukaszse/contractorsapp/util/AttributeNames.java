@@ -12,6 +12,7 @@ public class AttributeNames {
     public static final String CONTRACTORS_NAME_LIST = "contactors_names";
     public static final String ORDER = "order";
     public static final String SETTINGS = "setting_set";
+    public static final String CURRENCY = "currency_rates";
 
     // == constructor ==
     public AttributeNames() {

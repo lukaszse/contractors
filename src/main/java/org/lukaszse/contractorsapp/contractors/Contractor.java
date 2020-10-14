@@ -1,5 +1,6 @@
 package org.lukaszse.contractorsapp.contractors;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.GenericGenerator;
@@ -25,7 +26,9 @@ public class Contractor {
     @GenericGenerator(name="inc", strategy = "increment")
     private Integer id;
 
+
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "contractor")
+    @JsonManagedReference
     private Set<Order> orders;
 
     @NotBlank(message = "Field Name must not be empty.")
