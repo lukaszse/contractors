@@ -37,7 +37,8 @@ public class ContractorServiceImpl implements ContractorService {
 
     @Override
     public Contractor getContractor(Integer id) {
-            return repository.getOne(id);
+            return repository.findById(id)
+                    .orElse(null);
     }
 
     @Override
