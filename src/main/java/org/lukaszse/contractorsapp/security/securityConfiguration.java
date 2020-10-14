@@ -40,10 +40,7 @@ public class securityConfiguration extends KeycloakWebSecurityConfigurerAdapter 
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http.authorizeRequests()
-                .anyRequest()
-                .anonymous();
-
-/*                .antMatchers("/*", "/", "/contractors/*", "/contractors/")
-                .hasRole("user");*/
+                .antMatchers("/*", "/", "/contractors/*", "/contractors/")
+                .hasRole("user");
     }
 }

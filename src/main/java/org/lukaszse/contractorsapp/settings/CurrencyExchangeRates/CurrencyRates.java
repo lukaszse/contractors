@@ -14,4 +14,5 @@ public class CurrencyRates {
     private String currency;
     private String code;
     private Double mid;
+
 }
