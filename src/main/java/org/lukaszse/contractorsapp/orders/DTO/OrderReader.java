@@ -1,14 +1,8 @@
 package org.lukaszse.contractorsapp.orders.DTO;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.lukaszse.contractorsapp.contractors.Contractor;
-import org.lukaszse.contractorsapp.contractors.ContractorService;
-import org.lukaszse.contractorsapp.contractors.ContractorsRepository;
 import org.lukaszse.contractorsapp.orders.Order;
-import org.lukaszse.contractorsapp.orders.OrdersService;
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 public class OrderReader {

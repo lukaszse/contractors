@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Slf4j
@@ -12,11 +11,11 @@ import java.util.List;
 public class ContractorServiceImpl implements ContractorService {
 
     // == fields ==
-    private final ContractorsRepository repository;
+    private final ContractorRepository repository;
 
     // == constructors ==
     @Autowired
-    public ContractorServiceImpl(ContractorsRepository repository) {
+    public ContractorServiceImpl(ContractorRepository repository) {
         this.repository = repository;
     }
 
@@ -42,7 +41,7 @@ public class ContractorServiceImpl implements ContractorService {
     }
 
     @Override
-    public ContractorsRepository addContractor(Contractor newContractor) {
+    public boolean addContractor(Contractor newContractor) {
 
         boolean ContractorExist
                 = repository.findAll()
@@ -55,19 +54,19 @@ public class ContractorServiceImpl implements ContractorService {
         }
 
         repository.save(newContractor);
-        return repository;
+        return true;
     }
 
     @Override
-    public ContractorsRepository editContractor(Contractor contractor) {    // == duplicated code - to be modified ==
+    public boolean editContractor(Contractor contractor) {    // == duplicated code - to be modified ==
         repository.save(contractor);                                        // == duplicated code - to be modified ==
-        return repository;                                                  // == duplicated code - to be modified ==
+        return true;                                                  // == duplicated code - to be modified ==
     }
 
     @Override
-    public ContractorsRepository deleteContractor(Integer id) {
-        repository.deleteById(id);
-        return repository;
+    public boolean deleteContractor(Integer Contractorid) {
+        repository.deleteById(Contractorid);
+        return true;
     }
 
     //    @Override
