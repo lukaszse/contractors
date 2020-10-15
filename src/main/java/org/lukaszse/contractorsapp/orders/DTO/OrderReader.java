@@ -34,13 +34,18 @@ public class OrderReader {
     }
 
     public OrderReader(Order order) {
-        this.id = order.getId();
-        this.orderDate = order.getOrderDate();
-        this.contractorId = order.getContractor().getId();
-        this.contractor = order.getContractor();
-        this.price = String.format("%.2f", order.getPrice());
-        this.orderName = order.getOrderName();
-        this.orderDescription = order.getOrderDescription();
+        if(order != null) {
+            this.id = order.getId();
+            this.orderDate = order.getOrderDate();
+            this.contractorId = order.getContractor().getId();
+            this.contractor = order.getContractor();
+            this.price = String.format("%.2f", order.getPrice());
+            this.orderName = order.getOrderName();
+            this.orderDescription = order.getOrderDescription();
+        } else {
+            throw new IllegalArgumentException("Order object must not be null");
+        }
+
     }
 
     // TODO Setters to be deleted

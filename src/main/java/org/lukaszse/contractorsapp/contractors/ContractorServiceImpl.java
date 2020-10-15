@@ -42,9 +42,20 @@ public class ContractorServiceImpl implements ContractorService {
     }
 
     @Override
-    public ContractorsRepository addContractor(Contractor contractor) {
-    repository.save(contractor);
-    return repository;
+    public ContractorsRepository addContractor(Contractor newContractor) {
+
+        boolean ContractorExist
+                = repository.findAll()
+                            .stream()
+                            .anyMatch(existingContr -> existingContr.getName().equals(newContractor.getName()));
+
+        if(ContractorExist) {
+            log.info("There is already contractor with given name in database");
+            throw new IllegalArgumentException("Contractor with given name already exist!");
+        }
+
+        repository.save(newContractor);
+        return repository;
     }
 
     @Override
