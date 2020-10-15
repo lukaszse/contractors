@@ -45,7 +45,7 @@
                     <div class="form-group row">
                         <label for="selectCompany" class="col-sm-2 col-form-label">Contractor</label>
                         <div class="col-sm-10">
-                            <select  id="selectCompany" class="form-control" th:field="*{contractorId}">
+                            <select  id="selectCompany" class="form-control" th:field="*{contractorId}" th:errorclass="'form-control is-invalid'">
                                 <option th:each="contractorFromList : ${contractor_list}"
                                         th:value="${contractorFromList.getId()}"
                                         th:text="${contractorFromList.getName()}">Wireframe
@@ -58,7 +58,7 @@
                     <div class="form-group row">
                         <label for="inputPrice" class="col-sm-2 col-form-label">Price [PLN]</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPrice" th:field="*{price}">
+                            <input type="text" class="form-control" id="inputPrice" th:field="*{price}" th:errorclass="'form-control is-invalid'">
                         </div>
                     </div>
 
@@ -66,7 +66,7 @@
                     <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Order Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputName" th:field="*{orderName}">
+                            <input type="text" class="form-control" id="inputName" th:field="*{orderName}" th:errorclass="'form-control is-invalid'">
                         </div>
                     </div>
 
@@ -75,7 +75,7 @@
                         <label for="inputDesc" class="col-sm-2 col-form-label" rows="3">Description</label>
                         <div class="col-sm-10">
                             <!--<input type="text" class="form-control" id="inputDesc" th:field="*{orderDescription}">-->
-                            <textarea class="form-control" id="inputDesc" rows="4" th:field="*{orderDescription}"></textarea>
+                            <textarea class="form-control" id="inputDesc" rows="4" th:field="*{orderDescription}" th:errorclass="'form-control is-invalid'"></textarea>
                         </div>
                     </div>
 

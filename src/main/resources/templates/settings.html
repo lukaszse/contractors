@@ -53,7 +53,7 @@
                     <div class="form-group row">
                         <label for="inputName" class="col-sm-3 col-form-label">Company Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputName" th:field="*{companyName}">
+                            <input type="text" class="form-control" id="inputName" th:field="*{companyName}" th:errorclass="'form-control is-invalid'">
                         </div>
                     </div>
 
@@ -61,7 +61,7 @@
                     <div class="form-group row">
                         <label for="inputStr" class="col-sm-3 col-form-label">Street</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputStr" th:field="*{street}">
+                            <input type="text" class="form-control" id="inputStr" th:field="*{street}" th:errorclass="'form-control is-invalid'">
                         </div>
                     </div>
 
@@ -69,14 +69,14 @@
                     <div class="form-group row">
                         <label for="inputProperty" class="col-sm-3 col-form-label">Property No.</label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control" id="inputProperty" th:field="*{property}">
+                            <input type="number" class="form-control" id="inputProperty" th:field="*{property}" th:errorclass="'form-control is-invalid'">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="inputPost" class="col-sm-3 col-form-label">Postal code</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputPost" th:field="*{post}">
+                            <input type="text" class="form-control" id="inputPost" th:field="*{post}" th:errorclass="'form-control is-invalid'">
                         </div>
                     </div>
 
@@ -84,7 +84,7 @@
                     <div class="form-group row">
                         <label for="inputCity" class="col-sm-3 col-form-label">City</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputCity" th:field="*{city}">
+                            <input type="text" class="form-control" id="inputCity" th:field="*{city}" th:errorclass="'form-control is-invalid'">
                         </div>
                     </div>
 
@@ -92,14 +92,14 @@
                     <div class="form-group row">
                         <label for="inputCountry" class="col-sm-3 col-form-label">Country</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputCountry" th:field="*{country}">
+                            <input type="text" class="form-control" id="inputCountry" th:field="*{country}" th:errorclass="'form-control is-invalid'">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="inputPhone" class="col-sm-3 col-form-label">Phone Number</label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control" id="inputPhone" th:field="*{phone}">
+                            <input type="number" class="form-control" id="inputPhone" th:field="*{phone}" th:errorclass="'form-control is-invalid'">
                         </div>
                     </div>
 
