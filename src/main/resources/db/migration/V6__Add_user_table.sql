@@ -7,6 +7,6 @@ create table users
     password   varchar(200)
 );
 
-insert into users (user_name, first_name, last_name, password) values ('admin', 'John', 'Doe', 'admin');
+insert into users (user_name, first_name, last_name, password) values ('admin', 'John', 'Doe', '{bcrypt}$2a$10$Owq6qu3kHrYpwoFB5PMnZuG.CRfZ0A/I3QgJCeJd1X/ai2t/PXjMm');
 
-insert into users (user_name, first_name, last_name, password) values ('james', 'James', 'Smith', '12345');
+insert into users (user_name, first_name, last_name, password) values ('james', 'James', 'Smith', '{bcrypt}$2a$10$.6TcNyCQ4Gj68L9ESwT33ufoEZefOwWfn8KMV8ucekt1qE9FIXwLS');
