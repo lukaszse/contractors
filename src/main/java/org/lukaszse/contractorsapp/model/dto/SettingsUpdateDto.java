@@ -13,7 +13,7 @@ import javax.validation.constraints.Positive;
  * */
 
 
-public class SettingsWriter {
+public class SettingsUpdateDto {
 
     // == entity fields ==
     private Integer id;
@@ -43,7 +43,7 @@ public class SettingsWriter {
 
 
     // == constructors ==
-    public SettingsWriter() {}
+    public SettingsUpdateDto() {}
 
 
     public Settings toSettings() {

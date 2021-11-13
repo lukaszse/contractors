@@ -5,7 +5,7 @@ import org.lukaszse.contractorsapp.model.Order;
 
 import java.time.LocalDate;
 
-public class OrderReader {
+public class OrderViewDto {
 
     // == fields ==
     private Integer id;
@@ -24,10 +24,10 @@ public class OrderReader {
 
 
     // == constructors ==
-    public OrderReader() {
+    public OrderViewDto() {
     }
 
-    public OrderReader(Order order) {
+    public OrderViewDto(Order order) {
         if(order != null) {
             this.id = order.getId();
             this.orderDate = order.getOrderDate();

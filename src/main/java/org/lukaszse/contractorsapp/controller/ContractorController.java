@@ -30,13 +30,6 @@ public class ContractorController {
         this.contractorService = contractorService;
     }
 
-/*    // == model attributes ==
-    @ModelAttribute
-    public List<Contractor> contractorList() {
-        return contractorService.findAll();
-    }*/
-
-
     // == methods ==
     @GetMapping(Mappings.CONTRACTORS_LIST)
     public String contractorListView(Model model) {

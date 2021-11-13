@@ -1,15 +1,15 @@
-package org.lukaszse.contractorsapp.model;
+package org.lukaszse.contractorsapp.controller;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.lukaszse.contractorsapp.model.dto.OrderReader;
-import org.lukaszse.contractorsapp.model.dto.OrderWriter;
+import org.lukaszse.contractorsapp.model.dto.OrderViewDto;
+import org.lukaszse.contractorsapp.model.dto.OrderCreateDto;
 import org.lukaszse.contractorsapp.service.ContractorService;
 import org.lukaszse.contractorsapp.service.OrdersService;
 import org.lukaszse.contractorsapp.service.SettingService;
 import org.lukaszse.contractorsapp.util.AttributeNames;
 import org.lukaszse.contractorsapp.util.Mappings;
 import org.lukaszse.contractorsapp.util.ViewNames;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,20 +22,12 @@ import javax.validation.Valid;
 
 @Slf4j
 @Controller
+@RequiredArgsConstructor
 public class OrderController {
 
-    // == fields ==
-    private OrdersService ordersService;
-    private ContractorService contractorService;
-    private SettingService settingService;
-
-    // == constructors ==
-    @Autowired
-    public OrderController(OrdersService ordersService, ContractorService contractorService, SettingService settingService) {
-        this.ordersService = ordersService;
-        this.contractorService = contractorService;
-        this.settingService = settingService;
-    }
+    private final OrdersService ordersService;
+    private final ContractorService contractorService;
+    private final SettingService settingService;
 
     // == methods ==
     @GetMapping(Mappings.ORDER_LIST)
@@ -46,7 +38,7 @@ public class OrderController {
 
     @GetMapping(Mappings.ADD_ORDER)
     public String addOrder(Model model) {
-        var orderReader = new OrderReader();
+        var orderReader = new OrderViewDto();
         model.addAttribute(AttributeNames.ORDER, orderReader);
         model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
         return ViewNames.ADD_ORDER;
@@ -55,7 +47,7 @@ public class OrderController {
     @GetMapping(Mappings.EDIT_ORDER)
     public String editOrder(@RequestParam Integer id, Model model) {
         var order = ordersService.getOrder(id);
-        var orderReader = new OrderReader(order);
+        var orderReader = new OrderViewDto(order);
         model.addAttribute(AttributeNames.ORDER, orderReader);
         model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
         return ViewNames.ADD_ORDER;
@@ -63,7 +55,7 @@ public class OrderController {
 
     @PostMapping(Mappings.ADD_ORDER)
     public String processAddOrder(
-            @ModelAttribute(AttributeNames.ORDER) @Valid OrderWriter submittedOrder,
+            @ModelAttribute(AttributeNames.ORDER) @Valid OrderCreateDto submittedOrder,
             BindingResult bindingResult,
             Model model) {
         if (!bindingResult.hasErrors()) {
@@ -86,7 +78,7 @@ public class OrderController {
 
     @GetMapping(Mappings.VIEW_ORDER)
     public String orderView(@RequestParam Integer id, Model model) {
-        var orderReader = new OrderReader(ordersService.getOrder(id));
+        var orderReader = new OrderViewDto(ordersService.getOrder(id));
         model.addAttribute(AttributeNames.ORDER, orderReader);
         model.addAttribute("settingsSet", settingService.getCurrentSettings());
         log.info("Order description: " + orderReader.getOrderDescription() + " price after processing " + orderReader.getPrice());

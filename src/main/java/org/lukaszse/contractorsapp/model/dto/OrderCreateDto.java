@@ -1,5 +1,7 @@
 package org.lukaszse.contractorsapp.model.dto;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.lukaszse.contractorsapp.service.ContractorService;
 import org.lukaszse.contractorsapp.model.Order;
@@ -12,10 +14,11 @@ import javax.validation.constraints.Pattern;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Data
 @Slf4j
-public class OrderWriter {
+@NoArgsConstructor
+public class OrderCreateDto {
 
-    // == fields ==
     private Integer id;
 
     private LocalDate orderDate;
@@ -32,20 +35,6 @@ public class OrderWriter {
 
     @NotBlank(message = "Field Order Description must not be empty")
     private String orderDescription;
-
-
-    // == constructors ==
-
-    OrderWriter () {
-    }
-
-/*    OrderWriter(LocalDate orderDate, int contractorId, String price, String orderName, String orderDescription) {
-        this.orderDate = orderDate;
-        this.contractorId = contractorId;
-        this.price = price;
-        this.orderName = orderName;
-        this.orderDescription = orderDescription;
-    }*/
 
 
     public Order toOrder(final OrdersService ordersService, final ContractorService service) {
@@ -73,58 +62,4 @@ public class OrderWriter {
             return order;
         }
     }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public String getOrderName() {
-        return orderName;
-    }
-
-    public String getOrderDescription() {
-        return orderDescription;
-    }
-
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
-
-    public Integer getContractorId() {
-        return contractorId;
-    }
-
-    public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public void setContractorId(Integer contractorId) {
-        this.contractorId = contractorId;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public void setOrderName(String orderName) {
-        this.orderName = orderName;
-    }
-
-    public void setOrderDescription(String orderDescription) {
-        this.orderDescription = orderDescription;
-    }
-
-    public static Logger getLog() {
-        return log;
-    }
-
-
 }

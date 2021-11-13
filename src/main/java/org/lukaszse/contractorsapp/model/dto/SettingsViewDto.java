@@ -8,7 +8,7 @@ import org.lukaszse.contractorsapp.model.Settings;
  * */
 
 
-public class SettingsReader {
+public class SettingsViewDto {
 
     // == entity fields ==
     private Integer id;
@@ -29,9 +29,9 @@ public class SettingsReader {
 
 
     // == constructors ==
-    public SettingsReader() {}
+    public SettingsViewDto() {}
 
-    public SettingsReader(Settings settings) {
+    public SettingsViewDto(Settings settings) {
         this.id = settings.getId();
         this.companyName = settings.getCompanyName();
         this.street = settings.getStreet();

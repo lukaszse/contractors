@@ -2,17 +2,15 @@ package org.lukaszse.contractorsapp.model.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 @Data
 @NoArgsConstructor
-public class PasswordChangeRequestDto {
+public class PasswordChangeDto {
 
-    @NotBlank(message = "Login cannot be blank")
-    @Pattern(regexp = "^[a-zA-Z]+\\w{1,19}", message = "Login must start with a letter and contain 2 - 20 word characters (digits, letters, _)")
-    private String userName;
     @NotBlank
     private String oldPassword;
     @NotBlank(message = "Password cannot be blank")
