@@ -1,3 +1,4 @@
+/*
 package org.lukaszse.contractorsapp.user;
 
 import lombok.RequiredArgsConstructor;
@@ -25,3 +26,4 @@ public class UserDetailService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User with userName=%s cannot be found".formatted(username)));
     }
 }
+*/

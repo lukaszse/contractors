@@ -3,8 +3,4 @@
           th:replace="~{fragments/head :: headFragment}"/>
     <attr sel="#footerId"
           th:replace="~{fragments/footer :: footerFragment}"/>
-    <attr sel="#contractorListId"
-          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).CONTRACTORS_LIST}__}"/>
-    <attr sel="#orderListId"
-          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).ORDER_LIST}__}"/>
 </thlogic>
