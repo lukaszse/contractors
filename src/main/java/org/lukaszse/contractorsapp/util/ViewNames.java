@@ -14,6 +14,8 @@ public class ViewNames {
     public static final String LOGOUT = "logout";
     public static final String SETTINGS = "settings";
     public static final String ABOUT = "about";
+    public static final String PASSWORD_CHANGE = "password_change";
+
 
     // == constructor ==
     public ViewNames() {

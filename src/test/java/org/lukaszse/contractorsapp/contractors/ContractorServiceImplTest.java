@@ -2,9 +2,9 @@ package org.lukaszse.contractorsapp.contractors;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.lukaszse.contractorsapp.orders.DTO.OrderReader;
-import org.lukaszse.contractorsapp.orders.Order;
-import org.lukaszse.contractorsapp.orders.OrdersRepository;
+import org.lukaszse.contractorsapp.model.Contractor;
+import org.lukaszse.contractorsapp.repository.ContractorRepository;
+import org.lukaszse.contractorsapp.service.ContractorServiceImpl;
 
 import java.util.*;
 

@@ -1,8 +1,10 @@
 package org.lukaszse.contractorsapp.util;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Mappings {
 
-    // == final fields ==
     public static final String CONTRACTORS_LIST = "contractor_list";
     public static final String VIEW_CONTRACTOR = "view_contractor";
     public static final String ADD_CONTRACTOR = "add_contractor";
@@ -15,13 +17,11 @@ public class Mappings {
     public static final String HOME = "home";
     public static final String VIEW_ORDER = "view_order";
     public static final String LOGOUT = "logout";
-    public static final String SETTINGS = "settings";
     public static final String ABOUT = "about";
     public static final String LOGIN = "login";
+    public static final String SETTINGS = "settings";
+    public static final String PASSWORD_CHANGE = "password_change";
+    public static final String USER_ADMINISTRATION = "user_administration";
 
 
-
-    // == constructors ==
-    public Mappings() {
-    }
 }

@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 
 
-<div class="container-md" align="center">
+<div class="container-sm" align="center">
     <div th:if="${status == 403}">
         <p align="center">You don't have permission to change settings. Please log as administrator</p>
         <h1>
@@ -43,12 +43,6 @@
             <tr>
                 <td>Exception</td>
                 <td th:text="${exception}"/>
-            </tr>
-            <tr>
-                <td>Trace</td>
-                <td>
-                    <pre th:text="${trace}"/>
-                </td>
             </tr>
         </table>
     </div>
