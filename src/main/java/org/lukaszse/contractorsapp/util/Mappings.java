@@ -16,7 +16,7 @@ public class Mappings {
     public static final String EDIT_ORDER = "edit_order";
     public static final String HOME = "home";
     public static final String VIEW_ORDER = "view_order";
-    public static final String LOGOUT = "logout";
+    public static final String LOGOUT = "login?logout";
     public static final String ABOUT = "about";
     public static final String LOGIN = "login";
     public static final String SETTINGS = "settings";
