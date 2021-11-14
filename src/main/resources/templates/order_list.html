@@ -23,17 +23,30 @@
             <th></th>
         </tr>
 
-    <h1 th:each="order : ${order_list_view}">
-        <tr>
-            <td th:text="${order.id}"/>
-            <td th:text="${order.contractor.name}"/>
-            <td th:text="${order.orderName}"/>
-            <td align="center"><a id="viewOrder" class="btn btn-light btn-sm" role="button" aria-pressed="true">View Details</a></td>
-            <td align="center"><a id="editOrder" class="btn btn-light btn-sm" role="button" aria-pressed="true">Edit</a></td>
-            <td align="center"><a id="deleteOrder" class="btn btn-light btn-sm" role="button" aria-pressed="true">Delete</a></td>
-        </tr>
-    </h1>
+        <h1 th:each="order : ${order_page}">
+            <tr>
+                <td th:text="${order.id}"/>
+                <td th:text="${order.contractor.name}"/>
+                <td th:text="${order.orderName}"/>
+                <td align="center"><a id="viewOrder" class="btn btn-light btn-sm" role="button" aria-pressed="true">View
+                    Details</a></td>
+                <td align="center"><a id="editOrder" class="btn btn-light btn-sm" role="button"
+                                      aria-pressed="true">Edit</a></td>
+                <td align="center"><a id="deleteOrder" class="btn btn-light btn-sm" role="button" aria-pressed="true">Delete</a>
+                </td>
+            </tr>
+        </h1>
     </table>
+
+
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+            <li class="page-item" th:each="pageNumber : ${page_numbers}" th:classappend="${pageNumber==order_page.number + 1} ? active">
+                <a class="page-link" th:href="@{/order_list(pageSize=${order_page.size}, pageNumber=${pageNumber})}" th:text="${pageNumber}"></a>
+            </li>
+        </ul>
+    </nav>
+
 
     <a id="addNewOrder" class="btn btn-light btn-sm" role="button" aria-pressed="true">Add Order</a>
 </div>

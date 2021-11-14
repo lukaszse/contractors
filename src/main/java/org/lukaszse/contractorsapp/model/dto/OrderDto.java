@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.lukaszse.contractorsapp.service.ContractorService;
 import org.lukaszse.contractorsapp.model.Order;
 import org.lukaszse.contractorsapp.service.OrdersService;
-import org.slf4j.Logger;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -17,7 +16,7 @@ import java.time.LocalDate;
 @Data
 @Slf4j
 @NoArgsConstructor
-public class OrderCreateDto {
+public class OrderDto {
 
     private Integer id;
 
@@ -50,8 +49,7 @@ public class OrderCreateDto {
                     service.getContractor(contractorId),
                     new BigDecimal(price),
                     orderName,
-                    orderDescription
-            );
+                    orderDescription);
         } else {
             log.info("UPDATING ORDER");
             Order order = ordersService.getOrder(id);

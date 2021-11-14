@@ -1,5 +1,6 @@
 package org.lukaszse.contractorsapp.service;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.lukaszse.contractorsapp.model.Contractor;
 import org.lukaszse.contractorsapp.repository.ContractorRepository;
@@ -10,27 +11,12 @@ import java.util.List;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class ContractorServiceImpl implements ContractorService {
 
-    // == fields ==
     private final ContractorRepository repository;
 
-    // == constructors ==
-    @Autowired
-    public ContractorServiceImpl(ContractorRepository repository) {
-        this.repository = repository;
-    }
 
-
-/*    @PostConstruct
-    public void init() {
-        System.out.println("===================================================");
-        System.out.println("=========  this is your database print  ===========");
-        System.out.println(findAll().toString());
-        System.out.println("================  this is the end  ================");
-    }*/
-
-    // == methods ==
     @Override
     public List<Contractor> findAll() {
         return repository.findAll();
@@ -60,9 +46,9 @@ public class ContractorServiceImpl implements ContractorService {
     }
 
     @Override
-    public boolean editContractor(Contractor contractor) {    // == duplicated code - to be modified ==
-        repository.save(contractor);                                        // == duplicated code - to be modified ==
-        return true;                                                  // == duplicated code - to be modified ==
+    public boolean editContractor(Contractor contractor) {
+        repository.save(contractor);
+        return true;
     }
 
     @Override
@@ -70,9 +56,4 @@ public class ContractorServiceImpl implements ContractorService {
         repository.deleteById(Contractorid);
         return true;
     }
-
-    //    @Override
-//    public ContractorsRepository getRepository() {
-//        return repository;
-//    }
 }

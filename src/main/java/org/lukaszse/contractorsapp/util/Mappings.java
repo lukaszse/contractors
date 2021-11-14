@@ -22,6 +22,4 @@ public class Mappings {
     public static final String SETTINGS = "settings";
     public static final String PASSWORD_CHANGE = "password_change";
     public static final String USER_ADMINISTRATION = "user_administration";
-
-
 }

@@ -3,3 +3,9 @@ insert into orders (order_date,  contractor_id, price, order_name, order_descrip
 insert into orders (order_date,  contractor_id, price, order_name, order_description) values ('2020-09-14', 1, 85000, 'demontaz', 'demontaz regalow paletowych + sprzet');
 insert into orders (order_date,  contractor_id, price, order_name, order_description) values ('2020-09-15', 3, 178400.00, 'demontaz', 'demontaz regalow paletowych + sprzet');
 insert into orders (order_date,  contractor_id, price, order_name, order_description) values ('2020-09-15', 1, 178400.00, 'assembly', 'conveyors assembly');
+insert into orders (order_date,  contractor_id, price, order_name, order_description) values ('2020-11-15', 1, 10000.00, 'assembly', 'rack assembly');
+insert into orders (order_date,  contractor_id, price, order_name, order_description) values ('2021-10-15', 1, 99500.00, 'assembly', 'rack assembly');
+insert into orders (order_date,  contractor_id, price, order_name, order_description) values ('2021-10-15', 1, 99500.00, 'assembly ', 'rack assembly part 2');
+insert into orders (order_date,  contractor_id, price, order_name, order_description) values ('2020-09-15', 3, 178400.00, 'demontaz', 'demontaz regalow paletowych + sprzet');
+insert into orders (order_date,  contractor_id, price, order_name, order_description) values ('2020-09-15', 2, 178400.00, 'demontaz', 'demontaz regalow paletowych + sprzet');
+insert into orders (order_date,  contractor_id, price, order_name, order_description) values ('2020-09-15', 1, 178400.00, 'demontaz', 'demontaz regalow paletowych + sprzet');

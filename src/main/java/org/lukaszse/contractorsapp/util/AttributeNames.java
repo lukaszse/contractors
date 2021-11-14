@@ -14,6 +14,9 @@ public class AttributeNames {
     public static final String SETTINGS = "setting_set";
     public static final String CURRENCY = "currency_rates";
     public static final String PASSWORD_CHANGE = "password_dto";
+    public static final String ORDER_PAGE = "order_page";
+    public static final String PAGE_NUMBERS = "page_numbers";
+
 
     public static final String MESSAGE = "message";
 
