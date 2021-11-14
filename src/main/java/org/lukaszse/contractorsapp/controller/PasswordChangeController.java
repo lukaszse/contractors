@@ -39,8 +39,10 @@ public class PasswordChangeController {
             log.info("Changing password for user={}", principal.getName());
             userService.changePassword(principal.getName(), passwordChangeDto);
             model.addAttribute(AttributeNames.MESSAGE, "Password successfully updated!");
+            model.addAttribute(AttributeNames.PASSWORD_CHANGE, new PasswordChangeDto());
+        } else {
+            model.addAttribute(AttributeNames.PASSWORD_CHANGE, passwordChangeDto);
         }
-        model.addAttribute(AttributeNames.PASSWORD_CHANGE, passwordChangeDto);
         return ViewNames.PASSWORD_CHANGE;
     }
 }

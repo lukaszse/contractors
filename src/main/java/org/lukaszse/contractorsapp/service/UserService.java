@@ -9,6 +9,7 @@ import org.lukaszse.contractorsapp.repository.UserRepository;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 
@@ -33,6 +34,7 @@ public class UserService {
                 .orElseThrow(() -> new NotFoundException("User with userName=%s not found".formatted(userName)));
     }
 
+    @Transactional
     public void changePassword(final String userName, final PasswordChangeDto passwordChangeDto) {
         if (isPasswordMatching(userName, passwordChangeDto)) {
             userRepository.changePassword(userName, passwordEncoder.encode(passwordChangeDto.getNewPassword()));
@@ -42,12 +44,11 @@ public class UserService {
     }
 
     private boolean areBothNewPasswordsEqual(final PasswordChangeDto passwordChangeRequestDto) {
-        return passwordChangeRequestDto.getNewPassword() == null || passwordChangeRequestDto.getNewPasswordConfirm() == null
-                || !passwordChangeRequestDto.getNewPassword().equals(passwordChangeRequestDto.getNewPasswordConfirm());
+        return passwordChangeRequestDto.getNewPassword() != null && passwordChangeRequestDto.getNewPasswordConfirm() != null
+                && passwordChangeRequestDto.getNewPassword().equals(passwordChangeRequestDto.getNewPasswordConfirm());
     }
 
     private boolean isPasswordMatching(final String userName, final PasswordChangeDto passwordChangeRequestDto) {
-        areBothNewPasswordsEqual(passwordChangeRequestDto);
         return userRepository.findUserByUserName(userName)
                 .map(user -> passwordEncoder.matches(passwordChangeRequestDto.getOldPassword(), user.getPassword()))
                 .map(oldPasswordMatches -> oldPasswordMatches && areBothNewPasswordsEqual(passwordChangeRequestDto))
