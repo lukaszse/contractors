@@ -20,19 +20,24 @@ import java.security.Principal;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-public class PasswordChangeController {
+public class UserController {
 
     private final UserService userService;
 
     @GetMapping(Mappings.PASSWORD_CHANGE)
-    public String changePassword(Model model) {
+    public String changePassword(final Model model) {
         model.addAttribute(AttributeNames.PASSWORD_CHANGE, new PasswordChangeDto());
         return ViewNames.PASSWORD_CHANGE;
     }
 
+    @GetMapping(Mappings.USER_ADMINISTRATION)
+    public String userListView(final Model model) {
+        return null;
+    }
+
     @PostMapping(Mappings.PASSWORD_CHANGE)
     public String performPasswordChange(
-            @ModelAttribute(AttributeNames.PASSWORD_CHANGE) @Valid PasswordChangeDto passwordChangeDto,
+            @ModelAttribute(AttributeNames.PASSWORD_CHANGE) @Valid final PasswordChangeDto passwordChangeDto,
             BindingResult bindingResult,
             Model model, Principal principal) {
         if (!bindingResult.hasErrors()) {

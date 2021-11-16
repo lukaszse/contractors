@@ -2,15 +2,6 @@ spring:
   h2.console:
     enabled: true
     path: '/console'
-
   jpa:
     hibernate:
       ddl-auto: validate
-
-keycloak:
-  auth-server-url: 'http://192.168.55.210:8180/auth/'
-  realm: 'ConstructorAppLocal'
-  resource: 'contractors-spring-client-local'
-  public-client: true
-  ssl-required: "none"
-  confidential-port: 0
