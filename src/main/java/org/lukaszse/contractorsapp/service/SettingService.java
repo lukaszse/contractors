@@ -9,11 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class SettingService {
 
-    // == fiels ==
     private SettingsRepository settingsRepository;
 
-
-    // == constructor ==
     SettingService(SettingsRepository settingsRepository) {
         this.settingsRepository = settingsRepository;
     }
@@ -22,7 +19,7 @@ public class SettingService {
         log.info("getCourrentSettings method invoked");
         var currentSettings = settingsRepository.findFirstByOrderByIdDesc();
         return currentSettings.map(settings -> settings)
-                .orElseThrow(() ->  new IllegalArgumentException("!!!!!!  OPTIONAL IS NULL"));
+                .orElseThrow(() -> new IllegalArgumentException("!!!!!!  OPTIONAL IS NULL"));
     }
 
     public void writeSettings(Settings newSettings) {

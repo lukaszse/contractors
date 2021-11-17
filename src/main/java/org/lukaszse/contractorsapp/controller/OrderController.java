@@ -3,8 +3,8 @@ package org.lukaszse.contractorsapp.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.lukaszse.contractorsapp.model.Order;
-import org.lukaszse.contractorsapp.model.dto.OrderViewDto;
 import org.lukaszse.contractorsapp.model.dto.OrderDto;
+import org.lukaszse.contractorsapp.model.dto.OrderViewDto;
 import org.lukaszse.contractorsapp.service.ContractorService;
 import org.lukaszse.contractorsapp.service.OrdersService;
 import org.lukaszse.contractorsapp.service.SettingService;
@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 @Slf4j
 @Controller
@@ -38,8 +38,7 @@ public class OrderController {
 
     @GetMapping(Mappings.ADD_ORDER)
     public String addOrderView(Model model) {
-        var orderReader = new OrderViewDto();
-        model.addAttribute(AttributeNames.ORDER, orderReader);
+        model.addAttribute(AttributeNames.ORDER, new OrderViewDto());
         model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
         return ViewNames.ADD_ORDER;
     }
@@ -57,16 +56,14 @@ public class OrderController {
     public String orderListView(@RequestParam(name = "pageNumber", defaultValue = "1") int pageNumber,
                                 @RequestParam(name = "pageSize", defaultValue = "5") int pageSize,
                                 Model model) {
-
         Page<Order> orderPage = ordersService.getPaginated(PageRequest.of(pageNumber - 1, pageSize));
         model.addAttribute(AttributeNames.ORDER_PAGE, orderPage);
-
-        int totalPages = orderPage.getTotalPages();
-        if (totalPages > 0) {
-            List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
-                    .boxed().collect(Collectors.toList());
-            model.addAttribute(AttributeNames.PAGE_NUMBERS, pageNumbers);
-        }
+        Stream.of(orderPage.getTotalPages())
+                .filter(totalPages -> totalPages > 0)
+                .map(totalPages -> IntStream.rangeClosed(1, totalPages)
+                        .boxed()
+                        .collect(Collectors.toList()))
+                .forEach(pageNumbers -> model.addAttribute(AttributeNames.PAGE_NUMBERS, pageNumbers));
         return ViewNames.ORDER_LIST;
     }
 

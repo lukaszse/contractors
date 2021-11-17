@@ -2,10 +2,10 @@ package org.lukaszse.contractorsapp.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.lukaszse.contractorsapp.model.Contractor;
+import org.lukaszse.contractorsapp.service.ContractorService;
 import org.lukaszse.contractorsapp.util.AttributeNames;
 import org.lukaszse.contractorsapp.util.Mappings;
 import org.lukaszse.contractorsapp.util.ViewNames;
-import org.lukaszse.contractorsapp.service.ContractorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,10 +21,8 @@ import javax.validation.Valid;
 @Slf4j
 @Controller
 public class ContractorController {
-    // == final fields ==
     private final ContractorService contractorService;
 
-    // == constructors ==
     @Autowired
     public ContractorController(ContractorService contractorService) {
         this.contractorService = contractorService;
@@ -39,25 +37,19 @@ public class ContractorController {
 
     @GetMapping(Mappings.VIEW_CONTRACTOR)
     public String viewContractor(@RequestParam Integer id, Model model) {
-        Contractor contractor = contractorService.getContractor(id);
-        model.addAttribute(AttributeNames.CONTRACTOR, contractor);
+        model.addAttribute(AttributeNames.CONTRACTOR, contractorService.getContractor(id));
         return ViewNames.VIEW_CONTRACTOR;
     }
 
     @GetMapping(Mappings.ADD_CONTRACTOR)
     public String addContractor(Model model) {
-        Contractor newContractor = new Contractor();
-        log.info("ID FROM GETGMAPPING ADD METHOD = {}", newContractor.getId());
-        model.addAttribute(AttributeNames.CONTRACTOR, newContractor);
+        model.addAttribute(AttributeNames.CONTRACTOR, new Contractor());
         return ViewNames.ADD_CONTRACTOR;
     }
 
     @GetMapping(Mappings.EDIT_CONTRACTOR)
     public String addContractor(@RequestParam Integer id, Model model) {
-        Contractor contractor = contractorService.getContractor(id);
-        log.info("ID FROM GETGMAPPING EDIT METHOD = {}", contractor.getId());
-        log.info("CONTRACTOR NAME = {}", contractor.getName());
-        model.addAttribute(AttributeNames.CONTRACTOR, contractor);
+        model.addAttribute(AttributeNames.CONTRACTOR, contractorService.getContractor(id));
         return ViewNames.ADD_CONTRACTOR;
     }
 
@@ -68,23 +60,15 @@ public class ContractorController {
             BindingResult bindingResult
     ) {
 
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             return ViewNames.ADD_CONTRACTOR;
         }
 
-        if(contractor.getId() == null) {
-            log.info("GETID = {}", contractor.getId());
-            log.info("CONTRACTOR NAME = {}", contractor.getName());
-            log.info("DODAJEMY");
+        if (contractor.getId() == null) {
             contractorService.addContractor(contractor);
-        }
-        else{
-            log.info("GETID = {}", contractor.getId());
-            log.info("CONTRACTOR NAME = {}", contractor.getName());
-            log.info("EDYTUJEMY");
+        } else {
             contractorService.editContractor(contractor);
         }
-
         return "redirect:/" + Mappings.CONTRACTORS_LIST;
     }
 

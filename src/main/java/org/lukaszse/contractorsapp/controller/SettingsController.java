@@ -2,8 +2,8 @@ package org.lukaszse.contractorsapp.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.lukaszse.contractorsapp.model.dto.CurrencyRates;
-import org.lukaszse.contractorsapp.model.dto.SettingsViewDto;
 import org.lukaszse.contractorsapp.model.dto.SettingsUpdateDto;
+import org.lukaszse.contractorsapp.model.dto.SettingsViewDto;
 import org.lukaszse.contractorsapp.service.CurrencyRatesReaderService;
 import org.lukaszse.contractorsapp.service.SettingService;
 import org.lukaszse.contractorsapp.util.AttributeNames;
@@ -23,7 +23,7 @@ import java.util.List;
 @Controller
 public class SettingsController {
 
-    private SettingService settingService;
+    private final SettingService settingService;
 
     SettingsController(SettingService settingService) {
         this.settingService = settingService;
@@ -31,7 +31,6 @@ public class SettingsController {
 
     @GetMapping(Mappings.SETTINGS)
     String viewSettings(Model model) {
-        log.info("viewSetting() method invoked (GET)");
         log.info("Settings from database imported. id = " + settingService.getCurrentSettings().getId());
         var settingsReader = new SettingsViewDto(settingService.getCurrentSettings());
         model.addAttribute(AttributeNames.SETTINGS, settingsReader);
@@ -45,7 +44,6 @@ public class SettingsController {
             Model model) {
 
         if (!bindingResult.hasErrors()) {
-            log.info("updateSettings() method invoked (POST)");
             settingService.writeSettings(settingsWriter.toSettings());
             model.addAttribute(AttributeNames.MESSAGE, "Settings successfully updated!");
         }
@@ -56,8 +54,6 @@ public class SettingsController {
 
     @ModelAttribute(name = AttributeNames.CURRENCY)
     public List<CurrencyRates> currencyRates() {
-        var currencyRates = CurrencyRatesReaderService.getRates();
-        log.info("LISTA WALUT: " + currencyRates.toString());
-        return currencyRates;
+        return CurrencyRatesReaderService.getRates();
     }
 }

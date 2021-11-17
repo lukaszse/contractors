@@ -10,29 +10,27 @@
 
 <div class="container-md" align="center">
     <p>&nbsp;</p>
-    <h5>Order list:</h5>
+    <h5>User list:</h5>
     <p>&nbsp;</p>
     <table class="table table-striped table-dark" border="2" cellpadding="10">
 
         <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Contractor Name</th>
-            <th scope="col">Order Name</th>
-            <th></th>
+            <th scope="col">UserName</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
             <th></th>
             <th></th>
         </tr>
 
-        <h1 th:each="order : ${order_page}">
+        <h1 th:each="user : ${user_page}">
             <tr>
-                <td th:text="${order.id}"/>
-                <td th:text="${order.contractor.name}"/>
-                <td th:text="${order.orderName}"/>
-                <td align="center"><a id="viewOrder" class="btn btn-light btn-sm" role="button" aria-pressed="true">View
-                    Details</a></td>
-                <td align="center"><a id="editOrder" class="btn btn-light btn-sm" role="button"
+                <td th:text="${user.userName}"/>
+                <td th:text="${user.firstName}"/>
+                <td th:text="${user.lastName}"/>
+
+                <td align="center"><a id="editUser" class="btn btn-light btn-sm" role="button"
                                       aria-pressed="true">Edit</a></td>
-                <td align="center"><a id="deleteOrder" class="btn btn-light btn-sm" role="button" aria-pressed="true">Delete</a>
+                <td align="center"><a id="deleteUser" class="btn btn-light btn-sm" role="button" aria-pressed="true">Delete</a>
                 </td>
             </tr>
         </h1>
@@ -41,14 +39,15 @@
 
     <nav aria-label="...">
         <ul class="pagination pagination-sm">
-            <li class="page-item" th:each="pageNumber : ${page_numbers}" th:classappend="${pageNumber==order_page.number + 1} ? active">
-                <a class="page-link" th:href="@{/order_list(pageSize=${order_page.size}, pageNumber=${pageNumber})}" th:text="${pageNumber}"></a>
+            <li class="page-item" th:each="pageNumber : ${page_numbers}" th:classappend="${pageNumber==user_page.number + 1} ? active">
+                <a class="page-link" th:href="@{/order_list(pageSize=${user_page.size}, pageNumber=${pageNumber})}" th:text="${pageNumber}"></a>
             </li>
         </ul>
     </nav>
 
+    <h3>User CRUD operations not implemented yet...</h3>
 
-    <a id="addNewOrder" class="btn btn-light btn-sm" role="button" aria-pressed="true">Add Order</a>
+    <a id="addNewUser" class="btn btn-light btn-sm" role="button" aria-pressed="true">Add User</a>
 </div>
 
 <div align="center">

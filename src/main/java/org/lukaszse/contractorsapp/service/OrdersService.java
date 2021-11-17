@@ -12,8 +12,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.Collections;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Slf4j
 @Service
@@ -30,16 +32,14 @@ public class OrdersService {
     public Page<Order> getPaginated(Pageable pageable) {
         int pageSize = pageable.getPageSize();
         int currentPage = pageable.getPageNumber();
-        int startItem = currentPage * pageSize;
-        List<Order> orders = ordersRepository.findAll();
-        List<Order> list;
-        if (orders.size() < startItem) {
-            list = Collections.emptyList();
-        } else {
-            int toIndex = Math.min(startItem + pageSize, orders.size());
-            list = orders.subList(startItem, toIndex);
-        }
-        return new PageImpl<Order>(list, PageRequest.of(currentPage, pageSize), orders.size());
+        var orders = ordersRepository.findAll();
+        var ordersPage = Stream.of(orders)
+                .filter(orderList -> !orderList.isEmpty())
+                .flatMap(Collection::stream)
+                .skip((long) currentPage * pageSize)
+                .limit(pageSize)
+                .collect(Collectors.toList());
+        return new PageImpl<Order>(ordersPage, PageRequest.of(currentPage, pageSize), orders.size());
     }
 
     public void addEditOrder(OrderDto orderDto) {
@@ -48,10 +48,6 @@ public class OrdersService {
 
     public void deleteOrder(Integer id) {
         ordersRepository.deleteById(id);
-    }
-
-    public List<Order> findAll() {
-        return ordersRepository.findAll();
     }
 
     private Order createOrderOrGetOrderForUpdate(final OrderDto orderDto) {
