@@ -38,7 +38,6 @@
         </h1>
     </table>
 
-
     <nav aria-label="...">
         <ul class="pagination pagination-sm">
             <li class="page-item" th:each="pageNumber : ${page_numbers}" th:classappend="${pageNumber==order_page.number + 1} ? active">
@@ -46,7 +45,6 @@
             </li>
         </ul>
     </nav>
-
 
     <a id="addNewOrder" class="btn btn-light btn-sm" role="button" aria-pressed="true">Add Order</a>
 </div>

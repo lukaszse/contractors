@@ -3,8 +3,9 @@ package org.lukaszse.contractorsapp.model.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.lukaszse.contractorsapp.service.ContractorService;
+import org.lukaszse.contractorsapp.model.Contractor;
 import org.lukaszse.contractorsapp.model.Order;
+import org.lukaszse.contractorsapp.service.ContractorService;
 import org.lukaszse.contractorsapp.service.OrdersService;
 
 import javax.validation.constraints.NotBlank;
@@ -34,30 +35,4 @@ public class OrderDto {
 
     @NotBlank(message = "Field Order Description must not be empty")
     private String orderDescription;
-
-
-    public Order toOrder(final OrdersService ordersService, final ContractorService service) {
-
-        // TODO this method is to be revised (improvement possible)
-
-        price = price.replace(',', '.');
-
-        log.info("!!!! Id = {}", id);
-        if(id == null) {
-            log.info("ADDING ORDER");
-            return new Order(
-                    service.getContractor(contractorId),
-                    new BigDecimal(price),
-                    orderName,
-                    orderDescription);
-        } else {
-            log.info("UPDATING ORDER");
-            Order order = ordersService.getOrder(id);
-            order.setContractor(service.getContractor(contractorId));
-            order.setPrice(new BigDecimal(price));
-            order.setOrderName(orderName);
-            order.setOrderDescription(orderDescription);
-            return order;
-        }
-    }
 }

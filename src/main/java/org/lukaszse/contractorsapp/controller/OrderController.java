@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -37,14 +38,14 @@ public class OrderController {
 
 
     @GetMapping(Mappings.ADD_ORDER)
-    public String addOrderView(Model model) {
+    public String addOrderView(final Model model) {
         model.addAttribute(AttributeNames.ORDER, new OrderViewDto());
         model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
         return ViewNames.ADD_ORDER;
     }
 
     @GetMapping(Mappings.EDIT_ORDER)
-    public String editOrderView(@RequestParam Integer id, Model model) {
+    public String editOrderView(@RequestParam final Integer id, Model model) {
         var order = ordersService.getOrder(id);
         var orderReader = new OrderViewDto(order);
         model.addAttribute(AttributeNames.ORDER, orderReader);
@@ -53,9 +54,9 @@ public class OrderController {
     }
 
     @GetMapping(Mappings.ORDER_LIST)
-    public String orderListView(@RequestParam(name = "pageNumber", defaultValue = "1") int pageNumber,
-                                @RequestParam(name = "pageSize", defaultValue = "5") int pageSize,
-                                Model model) {
+    public String orderListView(@RequestParam(name = "pageNumber", defaultValue = "1") final int pageNumber,
+                                @RequestParam(name = "pageSize", defaultValue = "5") final int pageSize,
+                                final Model model) {
         Page<Order> orderPage = ordersService.getPaginated(PageRequest.of(pageNumber - 1, pageSize));
         model.addAttribute(AttributeNames.ORDER_PAGE, orderPage);
         Stream.of(orderPage.getTotalPages())
@@ -69,29 +70,30 @@ public class OrderController {
 
     @PostMapping(Mappings.ADD_ORDER)
     public String addOrder(
-            @ModelAttribute(AttributeNames.ORDER) @Valid OrderDto submittedOrder,
-            BindingResult bindingResult,
-            Model model) {
+            @ModelAttribute(AttributeNames.ORDER) @Valid final OrderDto submittedOrder,
+            final BindingResult bindingResult, final Model model) {
         if (!bindingResult.hasErrors()) {
             ordersService.addEditOrder(submittedOrder);
             return "redirect:/" + Mappings.ORDER_LIST;
         }
-        model.addAttribute(AttributeNames.ORDER, submittedOrder);
-        model.addAttribute(AttributeNames.CONTACTOR_LIST, contractorService.findAll());
+        model.addAttribute(Map.of(
+                AttributeNames.ORDER, submittedOrder,
+                AttributeNames.CONTACTOR_LIST, contractorService.findAll()));
         return ViewNames.ADD_ORDER;
     }
 
     @GetMapping(Mappings.DELETE_ORDER)
-    public String deleteOrder(@RequestParam Integer id) {
+    public String deleteOrder(@RequestParam final Integer id) {
         ordersService.deleteOrder(id);
         return "redirect:/" + Mappings.ORDER_LIST;
     }
 
     @GetMapping(Mappings.VIEW_ORDER)
-    public String orderView(@RequestParam Integer id, Model model) {
+    public String orderView(@RequestParam final Integer id, final Model model) {
         var orderReader = new OrderViewDto(ordersService.getOrder(id));
-        model.addAttribute(AttributeNames.ORDER, orderReader);
-        model.addAttribute("settingsSet", settingService.getCurrentSettings());
+        model.addAllAttributes(Map.of(
+                AttributeNames.ORDER, orderReader,
+                "settingsSet", settingService.getCurrentSettings()));
         log.info("Order description: " + orderReader.getOrderDescription() + " price after processing " + orderReader.getPrice());
         return ViewNames.VIEW_ORDER;
     }

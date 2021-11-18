@@ -3,6 +3,7 @@ package org.lukaszse.contractorsapp.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.util.Set;
 @Data
 @EqualsAndHashCode(of = "id")
 @Entity
+@NoArgsConstructor
 @Table( name = "contractors" )
 public class Contractor {
 
@@ -23,7 +25,6 @@ public class Contractor {
     @GeneratedValue(generator = "inc")
     @GenericGenerator(name="inc", strategy = "increment")
     private Integer id;
-
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "contractor")
     @JsonManagedReference
@@ -51,11 +52,4 @@ public class Contractor {
     @Positive(message = "Phone must be positive number")
     @NotNull(message = "Field Phone must not be empty")
     private Long phone;
-
-
-    // == Hibernate (JPA) needs it
-    public Contractor() {
-    }
-
-
 }

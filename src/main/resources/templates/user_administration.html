@@ -39,15 +39,19 @@
 
     <nav aria-label="...">
         <ul class="pagination pagination-sm">
-            <li class="page-item" th:each="pageNumber : ${page_numbers}" th:classappend="${pageNumber==user_page.number + 1} ? active">
-                <a class="page-link" th:href="@{/order_list(pageSize=${user_page.size}, pageNumber=${pageNumber})}" th:text="${pageNumber}"></a>
+            <li class="page-item" th:each="pageNumber : ${page_numbers}"
+                th:classappend="${pageNumber==user_page.number + 1} ? active">
+                <a class="page-link text-dark"
+                   th:href="@{/user_administration(pageSize=${user_page.size}, pageNumber=${pageNumber})}"
+                   th:text="${pageNumber}"`></a>
             </li>
         </ul>
     </nav>
 
+
     <h3>User CRUD operations not implemented yet...</h3>
 
-    <a id="addNewUser" class="btn btn-light btn-sm" role="button" aria-pressed="true">Add User</a>
+    <a href="add_user" class="btn btn-light btn-sm" role="button" aria-pressed="true">Add User</a>
 </div>
 
 <div align="center">

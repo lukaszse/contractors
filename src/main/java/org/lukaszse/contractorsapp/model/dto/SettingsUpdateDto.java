@@ -8,14 +8,8 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
 
-/*
- * This is setting class which includes datas about company and all user properties
- * */
-
-
 public class SettingsUpdateDto {
 
-    // == entity fields ==
     private Integer id;
 
     @NotBlank(message = "Company Name must not be empty")
@@ -41,8 +35,6 @@ public class SettingsUpdateDto {
     @NotNull(message = "Field phone must not be empty")
     private Integer phone;
 
-
-    // == constructors ==
     public SettingsUpdateDto() {}
 
 
@@ -61,64 +53,48 @@ public class SettingsUpdateDto {
     public void setId(Integer id) {
         this.id = id;
     }
-
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
-
     public void setStreet(String street) {
         this.street = street;
     }
-
     public void setProperty(Integer property) {
         this.property = property;
     }
-
     public void setPost(String post) {
         this.post = post;
     }
-
     public void setCity(String city) {
         this.city = city;
     }
-
     public void setCountry(String country) {
         this.country = country;
     }
-
     public void setPhone(Integer phone) {
         this.phone = phone;
     }
-
-
     public Integer getId() {
         return id;
     }
-
     public String getCompanyName() {
         return companyName;
     }
-
     public String getStreet() {
         return street;
     }
-
     public Integer getProperty() {
         return property;
     }
-
     public String getPost() {
         return post;
     }
-
     public String getCity() {
         return city;
     }
-
     public String getCountry() {
         return country;
     }
-
     public Integer getPhone() {
         return phone;
     }

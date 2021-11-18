@@ -1,19 +1,13 @@
 package org.lukaszse.contractorsapp.repository;
 
 import org.lukaszse.contractorsapp.model.Contractor;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
 
-// to limit access only to selected methods from crud
-public interface
-ContractorRepository {
+@Repository
+public interface ContractorRepository extends JpaRepository<Contractor, Integer> {
 
-    Optional<Contractor> findById(Integer id);
+    boolean existsByName(final String name);
 
-    List<Contractor> findAll();
-
-    void deleteById(Integer id);
-
-    Contractor save(Contractor entity);
 }

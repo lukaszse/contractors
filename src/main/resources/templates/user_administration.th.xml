@@ -3,4 +3,16 @@
           th:replace="~{fragments/head :: headFragment}"/>
     <attr sel="#footerId"
           th:replace="~{fragments/footer :: footerFragment}"/>
+    <attr sel="#addNewUser"
+          th:href="${addUser}"
+          th:with="addUser=${T(org.lukaszse.contractorsapp.util.Mappings).ADD_USER}"/>
+    <attr sel="#deleteUser"
+          th:href="${deleteUser}+'?userName='+${user.userName}"
+          th:with="deleteUser=${T(org.lukaszse.contractorsapp.util.Mappings).DELETE_USER}"/>
+    <attr sel="#editUser"
+          th:href="${editUser}+'?userName='+${user.userName}"
+          th:with="editUser=${T(org.lukaszse.contractorsapp.util.Mappings).EDIT_USER}"/>
+    <attr sel="#home"
+          th:href="${home}"
+          th:with="home=${T(org.lukaszse.contractorsapp.util.Mappings).HOME}"/>
 </thlogic>

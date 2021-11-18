@@ -16,7 +16,7 @@ public class SettingService {
     }
 
     public Settings getCurrentSettings() {
-        log.info("getCourrentSettings method invoked");
+        log.info("getCurrentSettings method invoked");
         var currentSettings = settingsRepository.findFirstByOrderByIdDesc();
         return currentSettings.map(settings -> settings)
                 .orElseThrow(() -> new IllegalArgumentException("!!!!!!  OPTIONAL IS NULL"));

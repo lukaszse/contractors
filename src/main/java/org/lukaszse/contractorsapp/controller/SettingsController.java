@@ -42,7 +42,6 @@ public class SettingsController {
             @ModelAttribute(AttributeNames.SETTINGS) @Valid SettingsUpdateDto settingsWriter,
             BindingResult bindingResult,
             Model model) {
-
         if (!bindingResult.hasErrors()) {
             settingService.writeSettings(settingsWriter.toSettings());
             model.addAttribute(AttributeNames.MESSAGE, "Settings successfully updated!");

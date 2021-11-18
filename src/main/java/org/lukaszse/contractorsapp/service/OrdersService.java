@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -58,7 +57,7 @@ public class OrdersService {
 
     private Order createOrder(final OrderDto orderDto) {
         return new Order(contractorService.getContractor(orderDto.getContractorId()),
-                new BigDecimal(orderDto.getPrice()),
+                new BigDecimal(orderDto.getPrice().replace(",", ".")),
                 orderDto.getOrderName(),
                 orderDto.getOrderDescription());
     }
@@ -66,7 +65,7 @@ public class OrdersService {
     private Order findOrderAndPrepareForUpdate(final OrderDto orderDto) {
         Order order = getOrder(orderDto.getId());
         order.setContractor(contractorService.getContractor(orderDto.getContractorId()));
-        order.setPrice(new BigDecimal(orderDto.getPrice()));
+        order.setPrice(new BigDecimal(orderDto.getPrice().replace(",", ".")));
         order.setOrderName(orderDto.getOrderName());
         order.setOrderDescription(orderDto.getOrderDescription());
         return order;

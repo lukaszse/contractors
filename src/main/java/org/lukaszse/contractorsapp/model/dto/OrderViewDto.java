@@ -7,23 +7,14 @@ import java.time.LocalDate;
 
 public class OrderViewDto {
 
-    // == fields ==
+
     private Integer id;
-
     private LocalDate orderDate;
-
     private Integer contractorId;
-
     private Contractor contractor;
-
     private String price;
-
     private String orderName;
-
     private String orderDescription;
-
-
-    // == constructors ==
     public OrderViewDto() {
     }
 
@@ -42,60 +33,45 @@ public class OrderViewDto {
 
     }
 
-    // TODO Setters to be deleted
-
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
-
     public Contractor getContractor() {
         return contractor;
     }
-
     public void setContractor(Contractor contractor) {
         this.contractor = contractor;
     }
-
     public Integer getContractorId() {
         return contractorId;
     }
-
     public String getOrderName() {
         return orderName;
     }
-
     public String getOrderDescription() {
         return orderDescription;
     }
-
     public LocalDate getOrderDate() {
         return orderDate;
     }
-
     public String getPrice() {
         return price;
     }
-
     void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }
-
     void setContractorId(Integer contractorId) {
         this.contractorId = contractorId;
     }
-
     void setPrice(String price) {
         this.price = price;
     }
-
     void setOrderName(String orderName) {
         this.orderName = orderName;
     }
-
     void setOrderDescription(String orderDescription) {
         this.orderDescription = orderDescription;
     }

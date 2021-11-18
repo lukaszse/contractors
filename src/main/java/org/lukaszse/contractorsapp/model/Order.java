@@ -47,9 +47,6 @@ public class Order {
     private String orderDescription;
 
 
-
-
-    // == constructors ==
     public Order(){
     }
 

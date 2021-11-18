@@ -17,6 +17,4 @@ public class CurrencyRatesNBPtable {
 
     @Embedded
     private List<CurrencyRates> rates;
-
-
 }

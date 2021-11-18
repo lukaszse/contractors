@@ -3,32 +3,17 @@ package org.lukaszse.contractorsapp.model.dto;
 import org.lukaszse.contractorsapp.model.Settings;
 
 
-/*
- * This is setting class which includes datas about company and all user properties
- * */
-
-
 public class SettingsViewDto {
 
-    // == entity fields ==
     private Integer id;
-
     private String companyName;
-
     private String street;
-
     private Integer property;
-
     private String post;
-
     private String city;
-
     private String country;
-
     private Integer phone;
 
-
-    // == constructors ==
     public SettingsViewDto() {}
 
     public SettingsViewDto(Settings settings) {

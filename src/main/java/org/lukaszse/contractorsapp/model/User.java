@@ -32,6 +32,6 @@ public class User {
     private String lastName;
 
     @NotBlank(message = "Password cannot be blank")
-    @Pattern(regexp = "^\\w{5,20}", message = "Password must contain 6 - 20 word characters (digits, letters, _)")
+    @Pattern(regexp = "^.{6,}", message = "Password must contain at least 6 characters")
     private String password;
 }
