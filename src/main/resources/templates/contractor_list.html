@@ -24,7 +24,7 @@
             <th scope="col"></th>
         </tr>
 
-    <h1 th:each="contractor : ${contractor_list}">
+    <h1 th:each="contractor : ${contractor_page}">
         <tr>
             <td th:text="${contractor.id}"/>
             <td th:text="${contractor.name}" />
@@ -36,6 +36,14 @@
     </h1>
         </tbody>
     </table>
+
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+            <li class="page-item" th:each="pageNumber : ${page_numbers}" th:classappend="${pageNumber==contractor_page.number + 1} ? active">
+                <a class="page-link" th:href="@{/contractor_list(pageSize=${contractor_page.size}, pageNumber=${pageNumber})}" th:text="${pageNumber}"></a>
+            </li>
+        </ul>
+    </nav>
 
     <a id="addContractorId" class="btn btn-light btn-sm" role="button" aria-pressed="true">Add Contractor</a>
 </div>

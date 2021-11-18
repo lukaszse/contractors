@@ -4,7 +4,11 @@
     <attr sel="#footerId"
           th:replace="~{fragments/footer :: footerFragment}"/>
     <attr sel="#home"
-          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).HOME}__}"/>
+          th:href="${home}"
+          th:with="home=${T(org.lukaszse.contractorsapp.util.Mappings).HOME}"
+    />
     <attr sel="#orderListId"
-          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).ORDER_LIST}__}"/>
+          th:href="${orderList}"
+          th:with="orderList=${T(org.lukaszse.contractorsapp.util.Mappings).ORDER_LIST}"
+    />
 </thlogic>

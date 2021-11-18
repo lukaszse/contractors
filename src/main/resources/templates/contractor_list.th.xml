@@ -4,13 +4,24 @@
     <attr sel="#footerId"
           th:replace="~{fragments/footer :: footerFragment}"/>
     <attr sel="#contractorId"
-          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).VIEW_CONTRACTOR}__+'?id='+${contractor.id}}"/>
+          th:href="${viewContractor}+'?id='+${contractor.id}"
+          th:with="viewContractor=${T(org.lukaszse.contractorsapp.util.Mappings).VIEW_CONTRACTOR}"
+    />
     <attr sel="#addContractorId"
-          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).ADD_CONTRACTOR}__}"/>
+          th:href="${addContractor}"
+          th:with="addContractor=${T(org.lukaszse.contractorsapp.util.Mappings).ADD_CONTRACTOR}"
+    />
     <attr sel="#deleteContractorId"
-          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).DELETE_CONTRACTOR}__+'?id='+${contractor.id}}"/>
+          th:href="${deleteContractor}+'?id='+${contractor.id}"
+          th:with="deleteContractor=${T(org.lukaszse.contractorsapp.util.Mappings).DELETE_CONTRACTOR}"
+    />
     <attr sel="#editContractorId"
+          th:href="${editContractor}+'?id='+${contractor.id}"
+          th:with="editContractor=${T(org.lukaszse.contractorsapp.util.Mappings).EDIT_CONTRACTOR}"
+    />
           th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).EDIT_CONTRACTOR}__+'?id='+${contractor.id}}"/>
     <attr sel="#home"
-          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).HOME}__}"/>
+          th:href="${home}"
+          th:with="home=${T(org.lukaszse.contractorsapp.util.Mappings).HOME}"
+    />
 </thlogic>

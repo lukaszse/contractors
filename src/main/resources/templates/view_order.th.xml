@@ -3,10 +3,19 @@
           th:replace="~{fragments/head :: headFragment}"/>
     <attr sel="#footerId"
           th:replace="~{fragments/footer :: footerFragment}"/>
+    <attr sel="#addNewOrderId"
+          th:href="${addOrder}"
+          th:with="addOrder=${T(org.lukaszse.contractorsapp.util.Mappings).ADD_ORDER}"/>
     <attr sel="#deleteOrderId"
-          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).DELETE_ORDER}__+'?id='+${order.id}}"/>
+          th:href="${deleteOrder}+'?id='+${order.id}"
+          th:with="deleteOrder=${T(org.lukaszse.contractorsapp.util.Mappings).DELETE_ORDER}"/>
     <attr sel="#editOrderId"
-          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).EDIT_ORDER}__+'?id='+${order.id}}"/>
-    <attr sel="#orderListId"
-          th:href="@{__${T(org.lukaszse.contractorsapp.util.Mappings).ORDER_LIST}__}"/>
+          th:href="${editOrder}+'?id='+${order.id}"
+          th:with="editOrder=${T(org.lukaszse.contractorsapp.util.Mappings).EDIT_ORDER}"/>
+    <attr sel="#home"
+          th:href="${home}"
+          th:with="home=${T(org.lukaszse.contractorsapp.util.Mappings).HOME}"/>
+    <attr sel="#viewOrder"
+          th:href="${viewOrder}+'?id='+${order.id}"
+          th:with="viewOrder=${T(org.lukaszse.contractorsapp.util.Mappings).VIEW_ORDER}"/>
 </thlogic>
