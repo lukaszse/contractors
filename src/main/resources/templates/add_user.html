@@ -7,7 +7,6 @@
 <body class="p-3 mb-2 bg-dark text-white">
 <div th:replace="~{fragments/menu :: menuFragment}"/>
 
-
 <div class="container">
     <div class="row">
 
@@ -16,7 +15,6 @@
 
         <div class="col-md-8">
             <div>
-
                 <form th:action="@{add_user}" th:object="${user}" method="post">
                     <br>
                     <H5  align="center">Add User:</H5>
@@ -64,15 +62,10 @@
                 </form>
             </div>
         </div>
-
-
             <div class="col-md-2">
             </div>
     </div>
 </div>
-
-
-
 <div align="center">
     <footer id="footerId">this is a footer</footer>
 </div>
