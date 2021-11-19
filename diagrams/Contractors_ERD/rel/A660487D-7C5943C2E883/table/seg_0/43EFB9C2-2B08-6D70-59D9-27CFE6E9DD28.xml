@@ -1,0 +1,120 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="43EFB9C2-2B08-6D70-59D9-27CFE6E9DD28" name="Settings_(Company)">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>5E5804A4-3564-9732-FD0F-990AD27EB0B8</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<ordsAlias>company</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="002FE414-B0E3-C371-BA09-AC4CCB2BE9D5">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>EEFCC584-BA33-1886-9669-973984E1E17F</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="company_name" id="B950252D-9892-80B8-1FAE-AC8C897D3522">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>17100F2F-DC53-9044-56D0-583521207DDF</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="street" id="E82FA0EB-90EF-64B3-4A0C-0266424FCFD1">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>3A1F1887-D680-6D0C-5EBD-2A3DFA6A752B</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="property" id="A2C34295-BD22-FE40-C9FC-0F3E8BD677CA">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>945DDFFF-4CFA-A9FB-2E6D-672D58B13281</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="post" id="C943D6A9-8698-1C21-C9E0-194F77258A28">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>DC78994A-534D-F4F5-E3E9-43D66B9A44B4</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="city" id="66CF44B5-93C9-BC2D-F4C6-3200A47B3AFA">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>BF2C23E3-E108-A34E-27B6-A8C46EC678AC</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="country" id="AEA597DD-41C4-CC29-3C03-5DE345796932">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>8AC84314-9BF9-DC0D-D410-30DFCE6536E3</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="phone" id="FB79A9EA-299C-0D87-77E5-C8770BE0CAA7">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>89061A89-D94E-6EAF-4466-486ABC545311</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="85D2D774-EC76-DC7E-54E7-1A0510612236" name="Settings_(Company)_PK">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:24:27 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="002FE414-B0E3-C371-BA09-AC4CCB2BE9D5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

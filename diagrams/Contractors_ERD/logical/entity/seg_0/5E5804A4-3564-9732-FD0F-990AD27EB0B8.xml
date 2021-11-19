@@ -1,0 +1,135 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5E5804A4-3564-9732-FD0F-990AD27EB0B8" name="Settings (Company)">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:58:36 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="EEFCC584-BA33-1886-9669-973984E1E17F">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:58:36 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="company_name" id="17100F2F-DC53-9044-56D0-583521207DDF">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:58:36 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="street" id="3A1F1887-D680-6D0C-5EBD-2A3DFA6A752B">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:58:36 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="property" id="945DDFFF-4CFA-A9FB-2E6D-672D58B13281">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:58:36 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="post" id="DC78994A-534D-F4F5-E3E9-43D66B9A44B4">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:58:36 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="city" id="BF2C23E3-E108-A34E-27B6-A8C46EC678AC">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:58:36 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="country" id="8AC84314-9BF9-DC0D-D410-30DFCE6536E3">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:58:36 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="phone" id="89061A89-D94E-6EAF-4466-486ABC545311">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:58:36 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="87834A71-05B4-DBA0-32D5-F78CBAD3D5A4" name="Contractor PK">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:58:36 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>EEFCC584-BA33-1886-9669-973984E1E17F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

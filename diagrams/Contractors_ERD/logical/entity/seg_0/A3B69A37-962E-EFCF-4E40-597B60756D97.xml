@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A3B69A37-962E-EFCF-4E40-597B60756D97" name="Order">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:45:41 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="23E16600-EE5B-335E-9774-185642352634">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:46:35 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="contractor_id" id="387E10DE-2F31-625F-22AD-A0CAC2911685">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:51:51 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="order_date" id="6046FCA3-4A5F-435E-191B-67D9A39A8136">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:46:52 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="price" id="D6AAA8C4-058E-69BD-233E-3F697F87B238">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:47:37 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="order_name" id="496BECDC-5888-FFBD-AB9B-8CB82295CEDD">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:48:31 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="order_description" id="2B65DD6D-91C1-ABFC-989A-38F64CE2C0C7">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:49:42 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="9D1E2C5B-EBAB-773A-8F78-F32D1962D8EA">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:55:13 UTC</createdTime>
+<generatorID>3A5F3C3A-6754-43A4-B0BF-DFE05D5612C4</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<referedAttribute>96855234-DB27-12C5-674B-CAD343CC464F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id2" id="786DD806-C238-3714-0104-86D2D3AC8048">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:00:10 UTC</createdTime>
+<generatorID>A4C12F74-30E6-C817-7505-4087A377562B</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<referedAttribute>EEFCC584-BA33-1886-9669-973984E1E17F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id11" id="4FEBA4CF-9E2E-CE94-9920-8D809BF157A6">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:15:13 UTC</createdTime>
+<generatorID>3A5F3C3A-6754-43A4-B0BF-DFE05D5612C4</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<referedAttribute>D0864249-CB1B-CAFA-2973-4443B20C7949</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="5E74E636-D9E7-40E6-BA48-ACB6B32A5FBF" name="Order PK">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 16:46:49 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<engineerTo>
+<item key="A660487D-7A25-72CE-880A-7C5943C2E883" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>23E16600-EE5B-335E-9774-185642352634</attributeRef>
+<attributeRef>9D1E2C5B-EBAB-773A-8F78-F32D1962D8EA</attributeRef>
+<attributeRef>4FEBA4CF-9E2E-CE94-9920-8D809BF157A6</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

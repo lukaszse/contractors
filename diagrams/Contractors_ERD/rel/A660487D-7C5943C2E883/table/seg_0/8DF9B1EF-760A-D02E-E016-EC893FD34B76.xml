@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8DF9B1EF-760A-D02E-E016-EC893FD34B76" name="User">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>558C788F-3344-670D-1C9F-F31C25887814</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="2C40A9E6-ACA1-8A1B-CC22-E0B3EE982CCE">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>BBAC7F1C-F437-6E36-D65A-DF946E7A6FE8</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="first_name" id="D9B589B5-CD0A-311D-473F-C8C38C326FE4">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>EBB2F3D2-8DB8-06B2-C88E-F44532F4E168</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="last_name" id="88486EE4-F01E-28B7-2234-A1842ABE55D4">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>C5921814-EA33-B123-FD66-21C435FB515E</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="password" id="028137F7-D21A-E798-81CC-7A1DAA41ADBF">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:18:02 UTC</createdTime>
+<generatorID>30ED1705-90DA-6785-69A2-0EAA7F242096</generatorID>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DD0D3C91-1059-C46B-E8BA-D23991ABF70F" name="User_PK">
+<createdBy>llser</createdBy>
+<createdTime>2021-11-19 17:26:23 UTC</createdTime>
+<ownerDesignName>Contractors_ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2C40A9E6-ACA1-8A1B-CC22-E0B3EE982CCE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
