@@ -5,6 +5,5 @@
           th:replace="~{fragments/footer :: footerFragment}"/>
     <attr sel="#homeId"
           th:href="${login}"
-          th:with="login=${T(org.lukaszse.contractorsapp.util.Mappings).LOGIN}"
-    />
+          th:with="login=${T(org.lukaszse.contractorsapp.util.Mappings).LOGIN}"/>
 </thlogic>

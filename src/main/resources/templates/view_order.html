@@ -24,7 +24,6 @@
             doc.save('Test.pdf');
         }
     </script>
-
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
 <div th:replace="~{fragments/menu :: menuFragment}"/>
@@ -45,8 +44,6 @@
         <h4 th:text="'Order no: '+${order.id}">Order number</h4>
     </div>
 
-
-
     <div class="container">
         <div class="row">
 
@@ -66,7 +63,6 @@
 
         </div>
     </div>
-
 
     <table id="table" class="table table-striped table-dark" border="2" cellpadding="10">
             <tr>
@@ -90,7 +86,6 @@
     <a href="javascript:genPDF()" class="btn btn-light btn-sm" role="button" aria-pressed="true">Generate PDF</a>
 
 </div>
-
 <div align="center">
     <footer id="footerId">this is a footer</footer>
 </div>
