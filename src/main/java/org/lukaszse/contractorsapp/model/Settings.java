@@ -1,6 +1,7 @@
 package org.lukaszse.contractorsapp.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -14,17 +15,12 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
 
-/*
- * This is setting class which includes datas about company and all user properties
- * */
-
-
 @Slf4j
 @Data
+@NoArgsConstructor
 @Entity(name = "settings")
 public class Settings {
 
-    // == entity fields ==
     @Id
     @GeneratedValue(generator = "inc")
     @GenericGenerator(name = "inc", strategy = "increment")
@@ -52,10 +48,4 @@ public class Settings {
 
     @NotNull(message = "Field phone must not be empty")
     private Integer phone;
-
-
-    // == constructors ==
-    public Settings() {}
-
-
 }

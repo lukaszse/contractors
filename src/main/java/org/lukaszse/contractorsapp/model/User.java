@@ -3,6 +3,7 @@ package org.lukaszse.contractorsapp.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import javax.validation.constraints.Pattern;
 
 @Data
 @EqualsAndHashCode(of = "userName")
+@NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {

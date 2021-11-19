@@ -3,6 +3,7 @@ package org.lukaszse.contractorsapp.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.lukaszse.contractorsapp.model.Contractor;
 
@@ -16,11 +17,11 @@ import java.time.LocalDate;
 
 @Data
 @EqualsAndHashCode(of = "id")
+@NoArgsConstructor
 @Entity
 @Table(name = "orders")
 public class Order {
 
-    // == fields ==
     @Id
     @GeneratedValue(generator = "inc")
     @GenericGenerator(name = "inc", strategy = "increment")
@@ -45,10 +46,6 @@ public class Order {
     @NotBlank(message = "Field Order Description must not be empty")
     @Column(name = "order_description")
     private String orderDescription;
-
-
-    public Order(){
-    }
 
     public Order(Contractor contractor, BigDecimal price, String orderName, String orderDescription) {
         this.orderDate = LocalDate.now();

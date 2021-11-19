@@ -19,8 +19,6 @@ import java.util.Set;
 @Table( name = "contractors" )
 public class Contractor {
 
-    // == fields ==
-
     @Id
     @GeneratedValue(generator = "inc")
     @GenericGenerator(name="inc", strategy = "increment")
