@@ -6,7 +6,7 @@ import org.lukaszse.contractorsapp.model.Order;
 import org.lukaszse.contractorsapp.model.dto.OrderDto;
 import org.lukaszse.contractorsapp.model.dto.OrderViewDto;
 import org.lukaszse.contractorsapp.service.ContractorService;
-import org.lukaszse.contractorsapp.service.OrdersService;
+import org.lukaszse.contractorsapp.service.OrderService;
 import org.lukaszse.contractorsapp.service.SettingService;
 import org.lukaszse.contractorsapp.util.AttributeNames;
 import org.lukaszse.contractorsapp.util.Mappings;
@@ -32,7 +32,7 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class OrderController {
 
-    private final OrdersService ordersService;
+    private final OrderService ordersService;
     private final ContractorService contractorService;
     private final SettingService settingService;
 
