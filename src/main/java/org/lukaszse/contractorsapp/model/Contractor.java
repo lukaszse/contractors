@@ -1,5 +1,6 @@
 package org.lukaszse.contractorsapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,16 +17,16 @@ import java.util.Set;
 @EqualsAndHashCode(of = "id")
 @Entity
 @NoArgsConstructor
-@Table( name = "contractors" )
+@Table(name = "contractors")
 public class Contractor {
 
     @Id
     @GeneratedValue(generator = "inc")
-    @GenericGenerator(name="inc", strategy = "increment")
+    @GenericGenerator(name = "inc", strategy = "increment")
     private Integer id;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "contractor")
-    @JsonManagedReference
+    @JsonBackReference
     private Set<Order> orders;
 
     @NotBlank(message = "Field Name must not be empty.")

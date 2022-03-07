@@ -1,6 +1,7 @@
 package org.lukaszse.contractorsapp.repository;
 
 import org.lukaszse.contractorsapp.model.Order;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
