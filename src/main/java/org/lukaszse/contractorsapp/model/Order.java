@@ -1,9 +1,11 @@
 package org.lukaszse.contractorsapp.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.GenericGenerator;
 import org.lukaszse.contractorsapp.model.Contractor;
 
@@ -29,9 +31,8 @@ public class Order {
 
     private LocalDate orderDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "contractor_id")
-    @JsonBackReference
     private Contractor contractor;
 
     @NotNull(message = "Field Price must not be null")

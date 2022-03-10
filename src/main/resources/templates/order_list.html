@@ -13,6 +13,7 @@
     <h5>Order list:</h5>
     <p>&nbsp;</p>
     <table class="table table-striped table-dark" border="2" cellpadding="10">
+        <thead>
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Contractor Name</th>
@@ -21,25 +22,20 @@
             <th></th>
             <th></th>
         </tr>
-        <h1 th:each="order : ${order_page}">
-            <tr>
-                <td th:text="${order.id}"/>
-                <td th:text="${order.contractor.name}"/>
-                <td th:text="${order.orderName}"/>
-                <td align="center"><a id="viewOrder" class="btn btn-light btn-sm" role="button" aria-pressed="true">View
-                    Details</a></td>
-                <td align="center"><a id="editOrder" class="btn btn-light btn-sm" role="button"
-                                      aria-pressed="true">Edit</a></td>
-                <td align="center"><a id="deleteOrder" class="btn btn-light btn-sm" role="button" aria-pressed="true">Delete</a>
-                </td>
-            </tr>
-        </h1>
+        <tr>
+            <td>Filters:</td>
+            <td><input id="contractorFilter" type="text" name="contractor" value=""></td>
+            <td><input id="orderNameFilter" type="text" name="orderName" value=""></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
     </table>
     <nav aria-label="...">
-        <ul class="pagination pagination-sm">
-            <li class="page-item" th:each="pageNumber : ${page_numbers}" th:classappend="${pageNumber==order_page.number + 1} ? active">
-                <a class="page-link" th:href="@{/order_list(pageSize=${order_page.size}, pageNumber=${pageNumber})}" th:text="${pageNumber}"></a>
-            </li>
+        <ul id="page-links" class="pagination pagination-sm">
         </ul>
     </nav>
 
@@ -49,6 +45,130 @@
     <footer id="footerId">this is a footer</footer>
 </div>
 
-</body>
+<script>
+    let orderNameFilter = document.getElementById("orderNameFilter");
+    let contractorFilter = document.getElementById("contractorFilter");
 
+
+    window.onload = function () {
+        loadDoc();
+    }
+    orderNameFilter.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        filter()
+    });
+
+    contractorFilter.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        filter()
+    });
+
+    function filter() {
+        const orderName = orderNameFilter.value;
+        const contractor = contractorFilter.value;
+        loadDoc(orderName, contractor)
+    }
+
+    function loadDoc(orderName, contractor, pageNumber) {
+
+        if (orderName == null) {
+            orderName = "";
+        }
+        if (contractor == null) {
+            contractor = "";
+        }
+
+        if (pageNumber == null) {
+            pageNumber = 1;
+        }
+
+        get(`http://localhost:8100/orders/findOrders?orderName=${orderName}&contractor=${contractor}&pageNumber=${pageNumber}`, function (err, response) {
+            if (err != null) {
+                console.error(err);
+            } else {
+                buildTable(response.content);
+                pageLinks(response);
+
+            }
+        });
+    }
+
+    function buildTable(array) {
+        let tbody = document.createElement("tbody");
+        tbody.id = "tbody";
+
+        for (const element of array) {
+            var row = document.createElement("tr");
+            addTextCell(element.id, row);
+            addTextCell(element.contractor.name, row);
+            addTextCell(element.orderName, row);
+            addLinkCell('View Details', `view_order?id=${element.id}`, row);
+            addLinkCell('Edit', `edit_order?id=${element.id}`, row);
+            addLinkCell('Delete', `delete_order?id=${element.id}`, row);
+            tbody.appendChild(row);
+        }
+        document.getElementById("tbody").replaceWith(tbody);
+    }
+
+    function addTextCell(cellContent, row) {
+        let cell = document.createElement("td");
+        cell.appendChild(document.createTextNode(cellContent));
+        row.appendChild(cell);
+    }
+
+    function addLinkCell(buttonName, link, row) {
+        let cell = document.createElement("td");
+        cell.setAttribute("align", "center")
+        let a = document.createElement("a");
+        a.appendChild(document.createTextNode(buttonName))
+        a.title = buttonName
+        a.href = link
+        a.className = "btn btn-light btn-sm";
+        a.setAttribute("class", "btn btn-light btn-sm")
+        a.setAttribute("role", "button")
+        a.setAttribute("aria-pressed", "true")
+        cell.appendChild(a);
+        row.appendChild(cell);
+        return row;
+    }
+
+    function pageLinks(data) {
+
+        let pageLinks = document.createElement("ul");
+        pageLinks.id = "page-links";
+        pageLinks.className = "pagination pagination-sm";
+
+        for (let i = 1; i <= data.totalPages; i++) {
+            let li = document.createElement("li");
+            li.className = "page-item";
+            let a = document.createElement("a");
+            a.appendChild(document.createTextNode(i))
+            a.className = "page-link";
+            a.onclick = function () {
+                loadDoc(orderNameFilter.value, contractorFilter.value, i)
+            }
+            a.title = i
+            li.appendChild(a);
+            pageLinks.appendChild(li);
+        }
+        document.getElementById("page-links").replaceWith(pageLinks);
+    }
+
+
+    function get(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'json';
+        xhr.onload = function () {
+            var status = xhr.status;
+            if (status === 200) {
+                callback(null, xhr.response);
+            } else {
+                callback(status, xhr.response);
+            }
+        };
+        xhr.send();
+    }
+</script>
+</body>
 </html>

@@ -3,15 +3,10 @@ package org.lukaszse.contractorsapp.model.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.lukaszse.contractorsapp.model.Contractor;
-import org.lukaszse.contractorsapp.model.Order;
-import org.lukaszse.contractorsapp.service.ContractorService;
-import org.lukaszse.contractorsapp.service.OrdersService;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data

@@ -4,49 +4,41 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.lukaszse.contractorsapp.model.Order;
 import org.lukaszse.contractorsapp.model.dto.OrderDto;
-import org.lukaszse.contractorsapp.repository.OrdersRepository;
+import org.lukaszse.contractorsapp.repository.OrderRepository;
+import org.lukaszse.contractorsapp.repository.OrderSearchRepository;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class OrdersService {
+public class OrderService {
 
-    private final OrdersRepository ordersRepository;
+    private final OrderRepository orderRepository;
+    private final OrderSearchRepository orderSearchRepository;
     private final ContractorService contractorService;
 
     public Order getOrder(Integer id) {
-        return ordersRepository.getById(id);
+        return orderRepository.getById(id);
     }
 
-    public Page<Order> getPaginated(Pageable pageable) {
-        int pageSize = pageable.getPageSize();
-        int currentPage = pageable.getPageNumber();
-        var orders = ordersRepository.findAll();
-        var ordersPage = Stream.of(orders)
-                .filter(orderList -> !orderList.isEmpty())
-                .flatMap(Collection::stream)
-                .skip((long) currentPage * pageSize)
-                .limit(pageSize)
-                .collect(Collectors.toList());
-        return new PageImpl<Order>(ordersPage, PageRequest.of(currentPage, pageSize), orders.size());
+    public Page<Order> getPaginated(final Pageable pageable) {
+        return orderSearchRepository.findAll(pageable);
+    }
+
+    public Page<Order> findOrders(final String orderName, final String contractor, final Pageable pageable) {
+        return orderSearchRepository.findOrdersByOrderNameContainsAndContractor_NameContainsIgnoreCase(orderName, contractor, pageable);
     }
 
     public void addEditOrder(OrderDto orderDto) {
-        ordersRepository.save(createOrderOrGetOrderForUpdate(orderDto));
+        orderRepository.save(createOrderOrGetOrderForUpdate(orderDto));
     }
 
     public void deleteOrder(Integer id) {
-        ordersRepository.deleteById(id);
+        orderRepository.deleteById(id);
     }
 
     private Order createOrderOrGetOrderForUpdate(final OrderDto orderDto) {
