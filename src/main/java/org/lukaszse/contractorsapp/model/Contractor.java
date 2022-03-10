@@ -25,10 +25,6 @@ public class Contractor {
     @GenericGenerator(name = "inc", strategy = "increment")
     private Integer id;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "contractor")
-    @JsonBackReference
-    private Set<Order> orders;
-
     @NotBlank(message = "Field Name must not be empty.")
     private String name;
 

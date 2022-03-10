@@ -7,16 +7,10 @@ import org.lukaszse.contractorsapp.model.dto.OrderDto;
 import org.lukaszse.contractorsapp.repository.OrderRepository;
 import org.lukaszse.contractorsapp.repository.OrderSearchRepository;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Slf4j
 @Service
@@ -35,8 +29,8 @@ public class OrderService {
         return orderSearchRepository.findAll(pageable);
     }
 
-    public List<Order> findOrders(final String orderName, final Pageable pageable) {
-        return orderSearchRepository.findOrdersByOrderNameContaining(orderName, pageable);
+    public Page<Order> findOrders(final String orderName, final String contractor, final Pageable pageable) {
+        return orderSearchRepository.findOrdersByOrderNameContainsAndContractor_NameContainsIgnoreCase(orderName, contractor, pageable);
     }
 
     public void addEditOrder(OrderDto orderDto) {

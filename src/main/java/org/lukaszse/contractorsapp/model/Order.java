@@ -33,7 +33,6 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "contractor_id")
-    @JsonManagedReference
     private Contractor contractor;
 
     @NotNull(message = "Field Price must not be null")
