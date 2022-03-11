@@ -82,7 +82,7 @@
             pageNumber = 1;
         }
 
-        get(`http://localhost:8100/orders/findOrders?orderName=${orderName}&contractor=${contractor}&pageNumber=${pageNumber}`, function (err, response) {
+        get(`/orders/findOrders?orderName=${orderName}&contractor=${contractor}&pageNumber=${pageNumber}`, function (err, response) {
             if (err != null) {
                 console.error(err);
             } else {
