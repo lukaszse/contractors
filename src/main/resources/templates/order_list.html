@@ -87,7 +87,7 @@
                 console.error(err);
             } else {
                 buildTable(response.content);
-                pageLinks(response);
+                pageLinks(response, pageNumber);
 
             }
         });
@@ -132,7 +132,7 @@
         return row;
     }
 
-    function pageLinks(data) {
+    function pageLinks(data, pageNumber) {
 
         let pageLinks = document.createElement("ul");
         pageLinks.id = "page-links";
@@ -140,7 +140,11 @@
 
         for (let i = 1; i <= data.totalPages; i++) {
             let li = document.createElement("li");
-            li.className = "page-item";
+            if(i === pageNumber) {
+                li.className = "page-item active";
+            } else {
+                li.className = "page-item";
+            }
             let a = document.createElement("a");
             a.appendChild(document.createTextNode(i))
             a.className = "page-link";
